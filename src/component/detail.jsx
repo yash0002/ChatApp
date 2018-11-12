@@ -1,10 +1,24 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import Button from '@material-ui/core/Button';
+import React,{Component} from 'react';
+//import ReactDOM from 'react-dom';
+ import { Button, TextField, FormLabel } from '@material-ui/core';
 
-function Welcome()
+
+class Welcome extends Component
 {
-    return  (
-        <Button variant="contained" color=" blue ">Hello World</Button>
-    );
+    render() {
+         return (
+             <div>
+                 <form>
+                     <FormLabel>Username</FormLabel>
+                     <TextField></TextField>
+                     <FormLabel>Password</FormLabel>
+                     <TextField></TextField>
+                     <Button>Submit</Button>
+
+                 </form>
+             </div>
+              );
+    }
 }
+
+export default Welcome;
