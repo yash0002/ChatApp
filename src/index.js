@@ -10,3 +10,13 @@ ReactDOM.render(<App />, document.getElementById('root'));
 // unregister() to register() below. Note this comes with some pitfalls.
 // Learn more about service workers: http://bit.ly/CRA-PWA
 serviceWorker.unregister();
+
+
+function Welcome(props)
+{
+    return <h3>Welcome {props.name} </h3>
+}
+
+const element = <Welcome name="User" />
+
+ReactDOM.render(element, document.getElementById("root"));
