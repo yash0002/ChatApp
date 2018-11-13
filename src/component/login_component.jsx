@@ -4,6 +4,16 @@ import { Button, TextField, FormLabel } from '@material-ui/core';
 
 class Login_component extends Component
 {
+    constructor {
+        super(props);
+        
+    }
+
+    search_email()
+    {
+        
+    }
+
     render() {
          return (
             <div display = "inline-block" >
@@ -15,7 +25,7 @@ class Login_component extends Component
                 <TextField label="Password" ></TextField>
                 <br/><br/>
 
-                <Button>Login</Button>
+                <Button onClick = {search_email} >Login</Button>
             </div>   
         );
     }
