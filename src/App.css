@@ -26,20 +26,16 @@
   background-color: lightblue;
 }
 
-.form-link {
+.centre-content {
   text-align: center;
 }
 
 #img-inline-div {
   display: inline-block;
-  width: 80px;
-  height : 80px;
+  width: 100px;
+  height: 100px;
 }
 
-#div-tag-style {
-  border : 2px;
-  border-color: #282c34;
-}
 
 @keyframes App-logo-spin {
   from {
