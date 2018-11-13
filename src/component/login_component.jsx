@@ -1,31 +1,58 @@
 import React,{Component} from 'react';
 import { Button, TextField, FormLabel } from '@material-ui/core';
-
+import {browserHistory} from 'react-router-dom'
 
 class Login_component extends Component
 {
-    constructor {
+    constructor(props) {
         super(props);
-        
+        this.state = {
+            value1 : "",
+            value2 : ""
+        };
+        this.setting_value1 = this.setting_value1.bind(this);
+        this.setting_value2 = this.setting_value2.bind(this);
+        this.gotoRegister = this.gotoRegister.bind(this);
     }
 
-    search_email()
+    setting_value1(evt)
     {
-        
+        this.setState(
+            {
+                value1 : evt.target.value
+            }
+        );
+        console.log('this typed : ', this.state.value1 );
     }
 
+    setting_value2(evt)
+    {
+        this.setState(
+            {
+                value2 : evt.target.value
+            }
+        );
+        console.log('this typed : ', this.state.value2 );
+    }
+
+    gotoRegister()
+    {
+        browserHistory.push('/displaylist');
+    }    
+   
     render() {
+       
          return (
             <div display = "inline-block" >
                 <br/><br/>
 
-                <TextField label="Email_id" ></TextField>
+                <TextField label="Email_id" value = {this.state.value1} onChange={this.setting_value1} ></TextField>
                 <br/><br/>
 
-                <TextField label="Password" ></TextField>
+                <TextField label="Password" value = {this.state.value2} onChange={this.setting_value2}></TextField>
                 <br/><br/>
-
-                <Button onClick = {search_email} >Login</Button>
+                <a id = "link-display" onClick={this.gotoRegister}>New User</a> &nbsp;&nbsp;&nbsp;
+                <Button onClick = "this.gotoRegister" >Login</Button>
             </div>   
         );
     }
