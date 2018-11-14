@@ -17,7 +17,7 @@ class Register_component extends React.Component
 
                 <TextField label="Enter Password Again"></TextField>
                 <br/><br/>
-                
+                <a href = "/login" id = "link-display">Already a member</a>
                 <Button>Register</Button>
             </div>                
         );

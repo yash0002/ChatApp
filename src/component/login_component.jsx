@@ -1,6 +1,6 @@
 import React,{Component} from 'react';
 import { Button, TextField, FormLabel } from '@material-ui/core';
-import {browserHistory} from 'react-router-dom'
+
 
 class Login_component extends Component
 {
@@ -22,7 +22,10 @@ class Login_component extends Component
                 value1 : evt.target.value
             }
         );
-        console.log('this typed : ', this.state.value1 );
+        //console.log('this typed : ', this.state.value1 );
+        let value_store1 = evt.target.value;
+        console.log('value_store1', value_store1);
+        
     }
 
     setting_value2(evt)
@@ -32,12 +35,14 @@ class Login_component extends Component
                 value2 : evt.target.value
             }
         );
-        console.log('this typed : ', this.state.value2 );
+        //console.log('this typed : ', this.state.value2 );
+        let value_store2 = evt.target.value;
+        console.log('value_store2', value_store2);
     }
 
     gotoRegister()
     {
-        browserHistory.push('/displaylist');
+        
     }    
    
     render() {
@@ -51,7 +56,7 @@ class Login_component extends Component
 
                 <TextField label="Password" value = {this.state.value2} onChange={this.setting_value2}></TextField>
                 <br/><br/>
-                <a id = "link-display" onClick={this.gotoRegister}>New User</a> &nbsp;&nbsp;&nbsp;
+                <a id = "link-display" href = "/register" >New User</a> &nbsp;&nbsp;&nbsp;
                 <Button onClick = "this.gotoRegister" >Login</Button>
             </div>   
         );
