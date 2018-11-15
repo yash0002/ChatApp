@@ -1,7 +1,6 @@
 import React,{Component} from 'react';
 import { Button, TextField, FormLabel } from '@material-ui/core';
 
-
 class Login_component extends Component
 {
     constructor(props) {
@@ -54,7 +53,7 @@ class Login_component extends Component
                 <TextField label="Email_id" value = {this.state.value1} onChange={this.setting_value1} ></TextField>
                 <br/><br/>
 
-                <TextField label="Password" value = {this.state.value2} onChange={this.setting_value2}></TextField>
+                <TextField label="Password" type = "password" value = {this.state.value2} onChange={this.setting_value2}></TextField>
                 <br/><br/>
                 <a id = "link-display" href = "/register" >New User</a> &nbsp;&nbsp;&nbsp;
                 <Button onClick = "this.gotoRegister" >Login</Button>
