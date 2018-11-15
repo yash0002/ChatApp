@@ -1,3 +1,10 @@
+/**
+ * @description base component of register page
+ * @author Yash
+ * @version 3.3.0
+ * @since 12/11/2018
+ * @package react, axios, material-ui/core
+ */
 import React from 'react';
 import { Button, TextField, FormLabel } from '@material-ui/core';
 import axios from 'axios';
