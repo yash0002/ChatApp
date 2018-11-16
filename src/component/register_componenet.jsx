@@ -76,8 +76,8 @@ class Register_component extends React.Component
                 alert('All good done');
                 console.log('pass 1 : ', this.state.pass_1, 'pass 2 : ', this.state.pass_2);
                 axios.post('/register', {
-                    email : this.state.email,
-                    passw : this.state.passw
+                    email : this.state.email_id,
+                    passw : this.state.pass_1
                 })
                 .then(response => {
                     console.log(response);
