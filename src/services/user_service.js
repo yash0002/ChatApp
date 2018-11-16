@@ -18,16 +18,14 @@ function login_service(email_id, password)
         console.log(response);
         if(response.data) {
             console.log('successful register');
-            this.setState({
-                redirectTo : '/login'
-            })
+            window.location.replace('/chat_page')
         }
         else {
-            console.log('Registration Failed');
+            console.log('Login Failed');
             
         }
     }).catch(error => {
-        console.log('Registration error up on server');
+        console.log('Login error up on server');
         console.log(error);
     })
 }
@@ -42,10 +40,12 @@ function register_service(email_id, password)
     .then(response => {
         console.log(response);
         if(response.data) {
-            console.log('successful register');
-            this.setState({
-                redirectTo : '/login'
-            })
+            console.log('successful register client services');
+            //return response.redirectTo('/login');
+            window.location.replace("/");
+            // this.setState({
+            //     redirectTo : 'login'
+            // })
         }
         else {
             console.log('Registration Failed');

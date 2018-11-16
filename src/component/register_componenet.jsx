@@ -75,6 +75,7 @@ class Register_component extends React.Component
             {
                 alert('All good done');
                 console.log('pass 1 : ', this.state.pass_1, 'pass 2 : ', this.state.pass_2);
+                // const redirect_result = 
                 user_service.register_service(this.state.email_id, this.state.pass_1);
             }
          }
