@@ -15,8 +15,7 @@ class Login_component extends Component
         super(props);
         this.state = {
             email_id : "",
-            password : "",
-            redirectTo : ""
+            password : ""
         };
         this.setting_emailid = this.setting_emailid.bind(this);
         this.setting_password = this.setting_password.bind(this);
@@ -44,11 +43,15 @@ class Login_component extends Component
     login_process(event)
     {
         event.preventDefault();
+        console.log('inside if-else method');
+        console.log('pass : ', this.state.password);
+        console.log('email - id : '+this.state.email_id);
+
         if(/^[a-z](\.?[a-z0-9]){3,}@g(oogle)?mail\.com$/g.test(this.state.email_id))
         {
             if(this.state.password.length >= 5)
             {
-                if(/^[a-zA-Z][\w!]{5,9}$/g.test(this.state.password))
+                if(/^[a-zA-Z0-9][\w!]{5,9}$/g.test(this.state.password))
                 {
                     console.log('email - id : '+this.state.email_id);
                     console.log('password : '+this.state.password);
@@ -64,10 +67,10 @@ class Login_component extends Component
             <div display = "inline-block" >
                 <br/><br/>
 
-                <TextField label="Email_id" value = {this.state.value1} onChange={this.setting_value1} ></TextField>
+                <TextField label="Email_id" value = {this.state.email_id} onChange={this.setting_emailid} ></TextField>
                 <br/><br/>
 
-                <TextField label="Password" type = "password" value = {this.state.value2} onChange={this.setting_value2}></TextField>
+                <TextField label="Password" type = "password" value = {this.state.password} onChange={this.setting_password}></TextField>
                 <br/><br/>
                 <a id = "link-display" href = "/register" >New User</a> &nbsp;&nbsp;&nbsp;
                 <Button onClick = {this.login_process} >Login</Button>

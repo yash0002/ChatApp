@@ -16,8 +16,7 @@ class Register_component extends React.Component
         this.state = {
             email_id : "",
             pass_1 : "",
-            pass_2 : "",
-            redirectTo : ""
+            pass_2 : ""
         };
         // this.email_id_setting_variable = this.email_id_setting_variable.bind(this);
         // this.pass1_setting_variable = this.pass1_setting_variable.bind(this);
@@ -70,14 +69,18 @@ class Register_component extends React.Component
 
          if(/^[a-z](\.?[a-z0-9]){2,}@g(oogle)?mail\.com$/g.test(this.state.email_id))
          {
-             console.log("emaid id : ", this.state.email_id);   
-            if(this.state.pass_1 === this.state.pass_2)
-            {
-                alert('All good done');
-                console.log('pass 1 : ', this.state.pass_1, 'pass 2 : ', this.state.pass_2);
-                // const redirect_result = 
-                user_service.register_service(this.state.email_id, this.state.pass_1);
-            }
+             if(/^[a-zA-Z][\w!]{5,9}$/g.test(this.state.password))
+             {
+                console.log("emaid id : ", this.state.email_id);   
+                if(this.state.pass_1 === this.state.pass_2)
+                {
+                    alert('All good done');
+                    console.log('pass 1 : ', this.state.pass_1, 'pass 2 : ', this.state.pass_2);
+                    // const redirect_result = 
+                    user_service.register_service(this.state.email_id, this.state.pass_1);
+                }
+             }
+             
          }
     }
     render() {

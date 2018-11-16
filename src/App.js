@@ -3,6 +3,7 @@ import logo from './logo.svg';
 import './App.css';
 import Register from './screen/register'
 import Login from './screen/login'
+import Chat_App_Page from './screen/chat_app_page'
 import { BrowserRouter as Router, Route } from "react-router-dom";
 
 class App extends Component {
@@ -36,7 +37,7 @@ class App extends Component {
           <div>
             <Route exact path='/' component = {Login} />
             {/* <Route exact path="/login" component={Login} /> */}
-            <Route path = "/chat_page" component={Chat_Page} />
+            <Route path = "/chat_page" component={Chat_App_Page} />
             <Route path = "/register" component={Register} />
           </div>
         </Router>
