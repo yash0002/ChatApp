@@ -3,11 +3,11 @@
  * @author Yash
  * @version 3.3.0
  * @since 12/11/2018
- * @package react, axios, material-ui/core
+ * @package react, material-ui/core
  */
 import React from 'react';
 import { Button, TextField, FormLabel } from '@material-ui/core';
-import axios from 'axios';
+import user_service from '../services/user_service';
 
 class Register_component extends React.Component
 {
@@ -68,33 +68,14 @@ class Register_component extends React.Component
         event.preventDefault();
         console.log('inside if-else method');
 
-         if(/^[a-z](\.?[a-z0-9]){3,}@g(oogle)?mail\.com$/g.test(this.state.email_id))
+         if(/^[a-z](\.?[a-z0-9]){2,}@g(oogle)?mail\.com$/g.test(this.state.email_id))
          {
              console.log("emaid id : ", this.state.email_id);   
             if(this.state.pass_1 === this.state.pass_2)
             {
                 alert('All good done');
                 console.log('pass 1 : ', this.state.pass_1, 'pass 2 : ', this.state.pass_2);
-                axios.post('/register', {
-                    email : this.state.email_id,
-                    passw : this.state.pass_1
-                })
-                .then(response => {
-                    console.log(response);
-                    if(response.data) {
-                        console.log('successful register');
-                        this.setState({
-                            redirectTo : '/login'
-                        })
-                    }
-                    else {
-                        console.log('Registration Failed');
-                        
-                    }
-                }).catch(error => {
-                    console.log('Registration error up on server');
-                    console.log(error);
-                })
+                user_service.register_service(this.state.email_id, this.state.pass_1);
             }
          }
     }

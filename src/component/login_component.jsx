@@ -1,49 +1,63 @@
+/**
+ * @description this is for login page component
+ * @author  Yash
+ * @since   11/11/2018
+ * @version 1.5.
+ * @module axios, react, material-ui
+ */
 import React,{Component} from 'react';
 import { Button, TextField, FormLabel } from '@material-ui/core';
+import user_service from '../services/user_service';
 
 class Login_component extends Component
 {
     constructor(props) {
         super(props);
         this.state = {
-            value1 : "",
-            value2 : ""
+            email_id : "",
+            password : "",
+            redirectTo : ""
         };
-        this.setting_value1 = this.setting_value1.bind(this);
-        this.setting_value2 = this.setting_value2.bind(this);
-        this.gotoRegister = this.gotoRegister.bind(this);
+        this.setting_emailid = this.setting_emailid.bind(this);
+        this.setting_password = this.setting_password.bind(this);
+        this.login_process = this.login_process.bind(this);
     }
 
-    setting_value1(evt)
+    setting_emailid(evt)
     {
         this.setState(
             {
-                value1 : evt.target.value
+                email_id : evt.target.value
             }
         );
-        //console.log('this typed : ', this.state.value1 );
-        let value_store1 = evt.target.value;
-        console.log('value_store1', value_store1);
-        
     }
 
-    setting_value2(evt)
+    setting_password(evt)
     {
         this.setState(
             {
-                value2 : evt.target.value
+                password : evt.target.value
             }
         );
-        //console.log('this typed : ', this.state.value2 );
-        let value_store2 = evt.target.value;
-        console.log('value_store2', value_store2);
     }
 
-    gotoRegister()
+    login_process(event)
     {
-        
-    }    
-   
+        event.preventDefault();
+        if(/^[a-z](\.?[a-z0-9]){3,}@g(oogle)?mail\.com$/g.test(this.state.email_id))
+        {
+            if(this.state.password.length >= 5)
+            {
+                if(/^[a-zA-Z][\w!]{5,9}$/g.test(this.state.password))
+                {
+                    console.log('email - id : '+this.state.email_id);
+                    console.log('password : '+this.state.password);
+                    user_service.login_service(this.state.email_id, this.state.password);                   
+                }
+            }
+        }
+    }
+
     render() {
        
          return (
@@ -56,7 +70,7 @@ class Login_component extends Component
                 <TextField label="Password" type = "password" value = {this.state.value2} onChange={this.setting_value2}></TextField>
                 <br/><br/>
                 <a id = "link-display" href = "/register" >New User</a> &nbsp;&nbsp;&nbsp;
-                <Button onClick = "this.gotoRegister" >Login</Button>
+                <Button onClick = {this.login_process} >Login</Button>
             </div>   
         );
     }
