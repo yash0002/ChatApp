@@ -40,7 +40,7 @@ class Chat_App_Message_Display_Component extends Component
 
     message_display_function(event)
     {
-
+        event.preventDefault();
     }
 
     render() {

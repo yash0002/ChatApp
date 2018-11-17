@@ -102,9 +102,11 @@ class Register_component extends React.Component
                     // const redirect_result = 
                     user_service.register_service(this.state.email_id, this.state.pass_1);
                 }
+                else alert("Password doen't match");
              }
-             
+             else alert('Password Invalid');
          }
+         else alert('Email-id not valid');
     }
     render() {
          return (
