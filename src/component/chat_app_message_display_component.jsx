@@ -7,7 +7,7 @@
  */
 import React,{Component} from 'react';
 import { Button, TextField, FormLabel } from '@material-ui/core';
-import user_service from '../services/user_service';
+import chat_service from '../services/chat_service';
 /**
  * @description Class Component to render display option we want on page
  * @extends React Component to make it a component
@@ -41,6 +41,7 @@ class Chat_App_Message_Display_Component extends Component
     message_display_function(event)
     {
         event.preventDefault();
+        chat_service.chat_app_socket_on();
     }
 
     render() {
@@ -48,7 +49,7 @@ class Chat_App_Message_Display_Component extends Component
          return (
             <div display = "inline-block" >
                 <br/>
-                <textarea id = "chat-text-area-style" value = "this.state.message_display" onChange = "this.state.message_display_function"></textarea><br/>
+                <textarea id = "chat-text-area-style" value = "this.state.message_display" onLoad = "this.message_display_function" ></textarea><br/>
             </div>   
         );
     }
