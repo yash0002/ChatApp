@@ -1,3 +1,10 @@
+/**
+ * @description Register app page display
+ * @author Yash
+ * @module Screen
+ * @since 12/11/2018
+ * @version 2.2
+ */
 
 .centre-content {
   text-align: center;
@@ -13,6 +20,26 @@
   color: #282c34;
   text-decoration: none;
 }
+
+#image-inline-div-chatting-page {
+  display: inline-block;
+  width: 50px;
+  height: 50px;
+}
+
+#chat-text-area-style {
+  display: inline-block;
+  width: 280px;
+  height: 350px;
+  resize: none;
+}
+
+#chat-send-image {
+  display: inline-block;
+  width: 30px;
+  height: 30px;
+}
+
 
 /*-------Already Defined----------*/
 

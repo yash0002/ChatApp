@@ -9,8 +9,19 @@ import React,{Component} from 'react';
 import { Button, TextField, FormLabel } from '@material-ui/core';
 import user_service from '../services/user_service';
 
+/**
+ * @description Class Component to render display option we want on page
+ * @extends React Component to make it a component
+ * @function render to display on webpage & to write html code
+ */
 class Login_component extends Component
 {
+
+    /**
+     * @description setting value of any text field to some object element declared in constructor
+     * @param {Object.props} props 
+     * @constructor to set values to object element
+     */
     constructor(props) {
         super(props);
         this.state = {
@@ -22,6 +33,10 @@ class Login_component extends Component
         this.login_process = this.login_process.bind(this);
     }
 
+    /**
+     * @description method to set value to class state variable
+     * @param {Event} evt 
+     */
     setting_emailid(evt)
     {
         this.setState(
@@ -31,6 +46,11 @@ class Login_component extends Component
         );
     }
 
+
+    /**
+     * @description method to set value to class state variable
+     * @param {Event} evt 
+     */
     setting_password(evt)
     {
         this.setState(
@@ -40,6 +60,12 @@ class Login_component extends Component
         );
     }
 
+
+    /**
+     * @description method to set value to class state variable
+     * @param {Event} evt 
+     * @function login_process to go for login procedure when send button clicked & asked for response from server via request
+     */
     login_process(event)
     {
         event.preventDefault();
@@ -78,5 +104,9 @@ class Login_component extends Component
         );
     }
 }
+
+/**
+ * @exports Register Class as Component in react tech
+ */
 
 export default Login_component;

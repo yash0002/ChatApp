@@ -9,8 +9,20 @@ import React from 'react';
 import { Button, TextField, FormLabel } from '@material-ui/core';
 import user_service from '../services/user_service';
 
+/**
+ * @description Class Component to render display option we want on page
+ * @extends React Component to make it a component
+ * @function render to display on webpage & to write html code
+ */
 class Register_component extends React.Component
 {
+
+    /**
+     * @description setting value of any text field to some object element declared in constructor
+     * @param {Object.props} props 
+     * @constructor to set values to object element
+     */
+
     constructor(props) {
         super(props);
         this.state = {
@@ -24,6 +36,12 @@ class Register_component extends React.Component
         this.check_both_email_password = this.check_both_email_password.bind(this);
         this.setAll = this.setAll.bind(this);
     }
+
+
+    /**
+     * @description method to set value to class state variable
+     * @param {Event} evt 
+     */
 
     setAll(event) {
         this.setState({
@@ -62,6 +80,11 @@ class Register_component extends React.Component
               
     // }
 
+    /**
+     * @description method to set value to class state variable
+     * @param {Event} evt 
+     * @function check_both_email_password to go for register procedure when send button clicked & asked for response from server via request
+     */
     check_both_email_password(event)
     {
         event.preventDefault();
@@ -117,5 +140,7 @@ class Register_component extends React.Component
         );
     }
 }
-
+/**
+ * @exports Register Class as Component in react tech
+ */
 export default Register_component;
