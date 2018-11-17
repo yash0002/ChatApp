@@ -7,7 +7,7 @@
  */
 import React,{Component} from 'react';
 import { Button, TextField, FormLabel } from '@material-ui/core';
-import user_service from '../services/user_service';
+import chat_service from '../services/chat_service';
 /**
  * @description Class Component to render display option we want on page
  * @extends React Component to make it a component
@@ -41,7 +41,7 @@ class Chat_App_Message_type_Component extends Component
     message_send_function(event)
     {
         event.preventDefault();
-        user_service.chat_app_service(this.state.message);
+        chat_service.chat_app_socket_emit(this.state.message);
     }
 
     render() {
@@ -49,7 +49,7 @@ class Chat_App_Message_type_Component extends Component
          return (
             <div display = "inline-block" >
                 <br/>
-                <Button><img src = {require('../images/message_send_arrow.jpg')} alt="User Registration" id = "chat-send-image" onClick={this.message_send_function}/></Button>
+                <Button onClick={this.message_send_function}><img src = {require('../images/message_send_arrow.jpg')} alt="User Registration" id = "chat-send-image" /></Button>
                 <TextField label="Text Message" inputProps={{ maxLength: 25 }} type = "TextField"  value = {this.state.message} onChange={this.setting_message_value_function}></TextField>
             </div>   
         );

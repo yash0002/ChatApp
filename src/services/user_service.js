@@ -118,23 +118,21 @@ function logout_service(email_id)
  */
 function chat_app_service(message_sent)
 {
-    console.log('Service-client-chat-app-register');
-    let user_login = localStorage.getItem(user_login);
+    console.log('Service-client-chat-app');
+    let user_login = localStorage.getItem("user_login");
     // let  message_with_user_email = {"message":message_sent, "user_email_id": user_login};
     // socket_io.emit('chat_message', message_with_user_email)
+    console.log('user_login : ',user_login);
+    let object_request = {
+        email_id : user_login,
+        message_sent : message_sent
+    };
     
-    socket_io.emit('chat_message', message_sent, user_login)
-    .then(response_message => {
-        if(response_message.data) {
-            socket_io.on('response_message', function(response_message) {
-                console.log('response_message : ' ,response_message); 
-            })
-        }
-        else console.log('Message not got in response');
-    }).catch(error => { 
-        console.log('message not got but error');
-        console.log(error);        
-    })
+    socket_io.emit('chat_message', user_login, message_sent);
+    socket_io.on('response_message', function(response) {
+    console.log('reponse : -----');
+    console.log(response);    
+    });
 }
 
 module.exports = {register_service, login_service, logout_service, chat_app_service};
