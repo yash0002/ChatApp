@@ -8,6 +8,7 @@
 import React from 'react';
 import Chat_App_Message_Display_Component from '../component/chat_app_message_display_component';
 import Chat_App_Message_type_Component from '../component/chat_page_message_type_component';
+import Logout_component from '../component/logout_component';
 /**
  * @description Class Component to render display option we want on page
  * @extends React Component to make it a component
@@ -22,6 +23,7 @@ class Chat_App_Page_Screen extends React.Component
                 <img src = {require('../images/messaging_logo.jpg')} alt="User Registration" id = "image-inline-div-chatting-page" /><br />
                 <Chat_App_Message_Display_Component/>
                 <Chat_App_Message_type_Component/>
+                <Logout_component />
             </div>
         );
     }

@@ -6,6 +6,8 @@ import Login_Screen from './screen/login_screen'
 import Chat_App_Page_Screen from './screen/chat_app_page_screen'
 import { BrowserRouter as Router, Route } from "react-router-dom";
 //import Register_component from './component/register_componenet';
+import io from 'socket.io-client';
+const socket_io = io.connect('http://localhost:3001');
 
 class App extends Component {
   state = {
@@ -31,6 +33,7 @@ class App extends Component {
     return body;
   }
   render() {
+    socket_io.emit('Server Connected on Client Side');
     return (
       <div>
       
