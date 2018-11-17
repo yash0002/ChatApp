@@ -59,13 +59,13 @@ function register_service(email_id, password)
     })
 }
 
-// function chat_app_service(email_id, password)
-// {
+function chat_app_service(email_id, password)
+{
 //     console.log('Service-client-chat-app-register');
 //     socket_io.emit('chat message', $('#message_sent').val());
 //     $('#m').val('');
 //     return false;
-// }
+}
 
 function logout_service(email_id)
 {
