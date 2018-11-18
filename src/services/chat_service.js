@@ -44,8 +44,9 @@ function chat_app_socket_on()
 {
     console.log('Service-client-chat-app-textarea');
     
+    socket_io.emit('to_fetch_chats');
     socket_io.on('response_message', function(response) {
-    console.log('reponse : -----');
+    console.log('reponse on client side : -----');
     console.log(response);    
     console.log('');
     return response;

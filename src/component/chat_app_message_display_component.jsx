@@ -29,19 +29,20 @@ class Chat_App_Message_Display_Component extends Component
         this.message_display_function = this.message_display_function.bind(this);
     }
 
-    // setting_message_value_function(event)
-    // {
-    //     this.setState({
-    //         message_display : event.target.value
-    //     });
-    //     console.log(this.state.message_display);
+    setting_message_value_function(event)
+    {
+        this.setState({
+            message_display : event.target.value
+        });
+        console.log(this.state.message_display);
         
-    // }
+    }
 
     message_display_function(event)
     {
         event.preventDefault();
-
+        this.setting_message_value_function(event);
+        chat_service.chat_app_socket_on();
         // let chat_messages_response = chat_service.chat_app_socket_on();
         // this.setState({
         //     message_display : chat_messages_response
@@ -53,10 +54,12 @@ class Chat_App_Message_Display_Component extends Component
     render() {
        
          return (
-            <div display = "inline-block" >
-                <br/>
-                <textarea id = "chat-text-area-style" value = "this.state.message_display" onLoad = "this.message_display_function" ></textarea><br/>
-            </div>   
+            <body onLoad = "this.message_display_function">
+                <div display = "inline-block" >
+                    <br/>
+                    <textarea id = "chat-text-area-style" value = "this.state.message_display" ></textarea><br/>
+                </div>
+            </body>
         );
     }
 }
