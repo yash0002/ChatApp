@@ -86,13 +86,13 @@ function register_service(email_id, password)
 
 /**
  * @description Method to send request for logout from client side to server side
- * @param {String} email_id 
  */
-function logout_service(email_id)
+function logout_service()
 {
     console.log('Service-client-link-logout');
+    let log_user_email_id = localStorage.getItem("user_login");
     axios.post('/logout', {
-        email : email_id,
+        log_user_email_id : log_user_email_id,
     })
     .then(response => {
         console.log(response);
@@ -100,39 +100,17 @@ function logout_service(email_id)
             console.log('successful logout');
             localStorage.clear();
             window.location.replace("/");
+            // return response;
         }
         else {
             console.log('logout Failed');
-            
+            return null;
         }
     }).catch(error => {
         console.log('logout error up on server');
         console.log(error);
+        return null;
     })
 }
 
-/**
- * @description Method to send request for message sending from client side to server side
- * @param {String} email_id 
- * @param {String} password 
- */
-function chat_app_service(message_sent)
-{
-    console.log('Service-client-chat-app');
-    let user_login = localStorage.getItem("user_login");
-    // let  message_with_user_email = {"message":message_sent, "user_email_id": user_login};
-    // socket_io.emit('chat_message', message_with_user_email)
-    console.log('user_login : ',user_login);
-    let object_request = {
-        email_id : user_login,
-        message_sent : message_sent
-    };
-    
-    socket_io.emit('chat_message', user_login, message_sent);
-    socket_io.on('response_message', function(response) {
-    console.log('reponse : -----');
-    console.log(response);    
-    });
-}
-
-module.exports = {register_service, login_service, logout_service, chat_app_service};
+module.exports = {register_service, login_service, logout_service};

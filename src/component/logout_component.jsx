@@ -8,6 +8,8 @@
 import React,{Component} from 'react';
 import { Button, TextField, FormLabel } from '@material-ui/core';
 import user_service from '../services/user_service';
+import {Redirect} from 'react-router-dom';
+import {browserHistory} from 'react-router';
 
 /**
  * @description Class Component to render display option we want on page
@@ -25,41 +27,10 @@ class Logout_component extends Component
     constructor(props) {
         super(props);
         this.state = {
-            email_id : "",
-            password : ""
-        };
-        this.setting_emailid = this.setting_emailid.bind(this);
-        this.setting_password = this.setting_password.bind(this);
+            redirect: false
+        }
         this.logout_process = this.logout_process.bind(this);
     }
-
-    /**
-     * @description method to set value to class state variable
-     * @param {Event} evt 
-     */
-    setting_emailid(evt)
-    {
-        this.setState(
-            {
-                email_id : evt.target.value
-            }
-        );
-    }
-
-
-    /**
-     * @description method to set value to class state variable
-     * @param {Event} evt 
-     */
-    setting_password(evt)
-    {
-        this.setState(
-            {
-                password : evt.target.value
-            }
-        );
-    }
-
 
     /**
      * @description method to set value to class state variable
@@ -69,23 +40,28 @@ class Logout_component extends Component
     logout_process(event)
     {
         event.preventDefault();
-        console.log('inside if-else method');
-        console.log('pass : ', this.state.password);
-        console.log('email - id : '+this.state.email_id);
-
-        
-
-        // if(/^[a-z](\.?[a-z0-9]){3,}@g(oogle)?mail\.com$/g.test(this.state.email_id))
+        user_service.logout_service();
+        // let logout_service_response = user_service.logout_service();
+        // if(logout_service_response != null) {
+        //     browserHistory.push('/');
+        // }
         // {
-        //     if(this.state.password.length >= 5)
-        //     {
-        //         if(/^[a-zA-Z0-9][\w!]{5,9}$/g.test(this.state.password))
-        //         {
-        //             console.log('email - id : '+this.state.email_id);
-        //             console.log('password : '+this.state.password);
-        //             user_service.login_service(this.state.email_id, this.state.password);                   
+        //     this.setRedirect = () => {
+        //         this.setState({
+        //             redirect : true
+        //         })
+        //     }
+         
+        //     this.renderRedirect = () => {
+        //         if(this.state.redirect) {
+        //             return <Redirect to='/' />
         //         }
         //     }
+        // }
+        // else
+        // {
+        //     console.log('Redirect Issue');
+            
         // }
     }
 
@@ -103,5 +79,4 @@ class Logout_component extends Component
 /**
  * @exports Register Class as Component in react tech
  */
-
 export default Logout_component;

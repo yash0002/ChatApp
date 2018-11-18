@@ -23,25 +23,31 @@ class Chat_App_Message_Display_Component extends Component
     constructor(props) {
         super(props);
         this.state = {
-            'message_display' : ''
+            'message_display' : 'Hello'
         };
         this.setting_message_value_function = this.setting_message_value_function.bind(this);
         this.message_display_function = this.message_display_function.bind(this);
     }
 
-    setting_message_value_function(event)
-    {
-        this.setState({
-            message_display : event.target.value
-        });
-        console.log(this.state.message_display);
+    // setting_message_value_function(event)
+    // {
+    //     this.setState({
+    //         message_display : event.target.value
+    //     });
+    //     console.log(this.state.message_display);
         
-    }
+    // }
 
     message_display_function(event)
     {
         event.preventDefault();
-        chat_service.chat_app_socket_on();
+
+        // let chat_messages_response = chat_service.chat_app_socket_on();
+        // this.setState({
+        //     message_display : chat_messages_response
+        // })
+        // console.log('chat messages -----------');
+        // console.log(chat_messages_response);       
     }
 
     render() {

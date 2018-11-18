@@ -28,10 +28,11 @@ function chat_app_socket_emit(message_sent)
     };
     
     socket_io.emit('chat_message', user_login, message_sent);
-    socket_io.on('response_message', function(response) {
-    console.log('reponse : -----');
-    console.log(response);    
-    });
+    
+    // socket_io.on('response_message', function(response) {
+    // console.log('reponse : -----');
+    // console.log(response);    
+    // });
 }
 
 /**
@@ -47,7 +48,7 @@ function chat_app_socket_on()
     console.log('reponse : -----');
     console.log(response);    
     console.log('');
-    
+    return response;
     });
 }
 
