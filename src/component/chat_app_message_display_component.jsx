@@ -41,9 +41,18 @@ class Chat_App_Message_Display_Component extends React.Component {
                 else {
                     console.log('------------------display array---------------');
                     console.log(result);
-                    this.setState({
-                        message_display: display_array
-                    })
+                    for (let i = 0; i < result.length; i++) {
+                        this.setState({
+                            message_display: result[i]
+                        })  
+                    }
+                    console.log('this.state.message_display----------------');
+                    console.log(this.state.message_display);
+                    
+                    
+                    // this.setState({
+                    //     message_display: result
+                    // })
                 }
             });
          
