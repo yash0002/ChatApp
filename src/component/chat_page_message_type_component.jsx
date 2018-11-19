@@ -23,7 +23,7 @@ class Chat_App_Message_type_Component extends Component
     constructor(props) {
         super(props);
         this.state = {
-            'message' : ''
+            message : ''
         };
         this.setting_message_value_function = this.setting_message_value_function.bind(this);
         this.message_send_function = this.message_send_function.bind(this);
