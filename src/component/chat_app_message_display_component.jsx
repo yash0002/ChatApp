@@ -7,6 +7,7 @@
  */
 import React, { Component } from 'react';
 import chat_service from '../services/chat_service';
+var async_waterfall = require('async-waterfall');
 // import promise from 'Promise';
 /**
  * @description Class Component to render display option we want on page
@@ -24,77 +25,47 @@ class Chat_App_Message_Display_Component extends React.Component {
         this.state = {
             message_display: []
         };
-        // let array_message = [];
-        // this.setting_message_value_function = this.setting_message_value_function.bind(this);
-        // this.message_display_function = this.message_display_function.bind(this);
     }
-    // this.setting_message_value_function();
-    // setting_message_value_function()
-    // {
-    //     chat_service.
-    //     socket_io.on('response_message', function(response) {
-    //         console.log('-----------------response by server on client textarea component----------------');
-    //         // console.log(response);
-    //         response.forEach(function (x) {
-    //             for(let y in x)
-    //             {
-    //                 console.log('---------------------------y-------------------');
-    //                 console.log(y);                    
-    //             }
-
-    //             // this.array_message.push(x.message)
-    //         })           
-    //         // console.log('-----------array of message------');
-    //         // console.log(this.array_message);            
-
-    //         // this.setState({
-    //         //     message_display : response
-    //         // });
-    //         // console.log(this.state.message_display);
-    //     });
-    // }
 
     componentDidMount() {
         console.log('did mount in client side');
-        let display_array = [];
-        display_array = chat_service.chat_app_socket_on();
-        console.log('-----------------display_array----------------');
-        console.log(display_array);        
-        
+        async_waterfall ([
+            function(callback) {
+                var display_array = chat_service.chat_app_socket_on();
+                callback(null, display_array);
+            } ], function (err, result) {
+                if(err) {
+                    console.log('error on component page while fetching chats');
+                    console.log(err);
+                }
+                else {
+                    console.log('------------------display array---------------');
+                    console.log(result);
+                }
+            });
+         
+         
+        // let display_array = new Promise( chat_service.chat_app_socket_on());
+
+        // display_array.then( function retrieving(result) {
+        //     Result = result;
+        //     console.log('-----------------display_array----------------');
+        //     console.log(display_array);
+        //     this.setState({
+        //         message_display: display_array
+        //     })
+        // })
         // for(let i=0; i<display_array.length; i++)
         // {
-        this.setState({
-            message_display: display_array
-        })
+        // this.setState({
+        //     message_display: display_array
+        // })
         // }
     }
-    // message_display_function(event)
-    // {
-    //     this.
-    //     event.preventDefault();
-    //     this.setting_message_value_function(event);
-    //     chat_service.chat_app_socket_on();
-    //     // let chat_messages_response = chat_service.chat_app_socket_on();
-    //     // this.setState({
-    //     //     message_display : chat_messages_response
-    //     // })
-    //     // console.log('chat messages -----------');
-    //     // console.log(chat_messages_response);       
-    // }
 
     render() {
-        // // this.setting_message_value_function();
-        // let display_array = new Promise(chat_service.chat_app_socket_on());
-        // display_array.then(function(result) {
-        //     Result = result;
-        // }).console.error();
         console.log(this.state.message_display);
-        
-
-        // this.state
         return (
-            // <body onLoad = "this.setting_message_value_function">
-
             <div >
                 <br />
                 {this.state.message_display.map(value => {
@@ -102,7 +73,6 @@ class Chat_App_Message_Display_Component extends React.Component {
                 })}
                 {/* <div display = "inline-block" value = {display_array} id = "chat-div"></div> */}
             </div>
-            // </body>
         );
     }
 }
