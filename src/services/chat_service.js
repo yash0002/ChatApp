@@ -42,11 +42,11 @@ function chat_app_socket_emit(message_sent)
  */
 function chat_app_socket_on()
 {
-    console.log('Service-client-chat-app-socket-on');
+    // console.log('Service-client-chat-app-socket-on');
     let array_message = [], array_email_id = [], array_chats_final = [];
     
     socket_io.on('response_message', function(response) {
-    console.log('reponse on client side in service.js page : -----');
+    // console.log('reponse on client side in service.js page : -----');
     // console.log(response.message);
     // console.log(response.email_id);        
     for(let i in response.message)
@@ -67,10 +67,10 @@ function chat_app_socket_on()
     // console.log(array_email_id);    
     for(let i in array_message)
     {
-        array_chats_final.push(array_message[i] +' By :- '+ array_email_id[i] );
+        array_chats_final.push({ "msg":array_message[i] +' By :- '+ array_email_id[i]} );
     }
-    console.log('---------------------final chats here on client side ------------------------');
-    console.log(array_chats_final);    
+    // console.log('---------------------final chats here on client side ------------------------');
+    // console.log(array_chats_final);    
     });
     return array_chats_final;
 }

@@ -7,8 +7,6 @@
  */
 // import axios from 'axios';
 const axios = require('axios');
-const io = require('socket.io-client');
-const socket_io = io.connect('http://localhost:3001');
 
 /**
  * @description Method to send request for login already a user from client side to server side

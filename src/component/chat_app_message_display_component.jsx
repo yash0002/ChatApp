@@ -7,6 +7,7 @@
  */
 import React, { Component } from "react";
 import chat_service from '../services/chat_service';
+import Chat_App_Page_Screen from "../screen/chat_app_page_screen";
 
 // var async_waterfall = require('async-waterfall');
 // // import promise from 'Promise';
@@ -50,38 +51,24 @@ import chat_service from '../services/chat_service';
 //                     //         message_display: result[i]
 //                     //     })  
 //                     // }
-                    
+
 //                     // console.log('this.state.message_display----------------');
 //                     // console.log(this.state.message_display);
-                    
-                    
+
+
 //                     // this.setState({
 //                     //     message_display: result
 //                     // })
 //             //     }
 //             // });
 //                  // let display_array = new Promise( chat_service.chat_app_socket_on());
-        
 
-//         // display_array.then( function retrieving(result) {
-//         //     Result = result;
-//         //     console.log('-----------------display_array----------------');
-//         //     console.log(display_array);
-//         //     this.setState({
-//         //         message_display: display_array
-//         //     })
-//         // })
-//         // for(let i=0; i<display_array.length; i++)
-//         // {
-//         // this.setState({
-//         //     message_display: display_array
-//         // })
-//         // }
+
 //     }
 
 //     render() {
 //         console.log("sadadasdasdsaddsadsadsa");
-        
+
 //         console.log(this.state.message_display);
 //         return (
 //             <div >
@@ -108,38 +95,52 @@ class Chat_App_Message_Display_Component extends Component {
      * @param {Object.props} props 
      * @constructor to set values to object element
      */
-    constructor(props)
-    {
+    constructor(props) {
         super(props);
-        this.state= {
-            message_display: []
+        this.state = {
+            message_display: [],
+            message_string: ''
         }
+        this.msg = [];
+        
     }
     componentDidMount() {
-        console.log("component mounted");
-        
+        // console.log("component mounted");
+
         var display_array = chat_service.chat_app_socket_on();
         console.log("displayArray", display_array);
-        
+
         this.setState({
             message_display: display_array
-        })  
+        });
+        this.msg = display_array;
+        // for (let i = 0; i < display_array.length; i++) {
+        //     this.setState({
+        //         message_string: display_array[i]
+        //     })
+        //     // console.log('String ---------', this.state.message_string);
+
+        // }
     }
+
     render() {
-        console.log("render:''''''''''''",this.state.message_display);
+        console.log("dfjhgjghjfghj", this.msg);
+        
         return (
-            <div >
-                <br />
-                {this.state.message_display.toLocaleString()}
-                {this.state.message_display.map((value) => {
-                    return value
-                    // return (<b>{value?value:null}</b>)// value = {this.state.message_display}> </div>)
+            <div id="asdsad">
+                {this.state.message_display.map(value =>{
+                    return (
+                        <span id={value}>{value}</span>
+                    )
                 })}
-                {/* <div display = "inline-block" value = {display_array} id = "chat-div"></div> */}
             </div>
-        )
+            )       
     }
 }
+
+
+
+
 
 /**
  * @exports Chat_App_Message_Display_Component Class as Component in react tech

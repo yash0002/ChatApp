@@ -16,9 +16,11 @@ class App extends Component {
   
   componentDidMount() {
     //calling fetch function here once components mounts
-    this.callBackendAPI()
-    .then(res => this.setState ({ data : res.express}))
-    .catch(err => console.log(err))
+    // this.callBackendAPI()
+    // .then(res => this.setState ({ data : res.express}))
+    // .catch(err => {
+    //   console.log(err)
+    // })
   }
 
   //fetching our GET route from express server {only those route have to fetch}
