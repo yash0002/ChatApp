@@ -48,7 +48,6 @@ class Chat_App_Message_type_Component extends Component
        
          return (
             <div display = "inline-block" >
-                <br/>
                 <Button onClick={this.message_send_function}><img src = {require('../images/message_send_arrow.jpg')} alt="User Registration" id = "chat-send-image" /></Button>
                 <TextField label="Text Message" inputProps={{ maxLength: 25 }} type = "TextField"  value = {this.state.message} onChange={this.setting_message_value_function}></TextField>
             </div>   
