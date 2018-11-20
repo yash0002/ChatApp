@@ -43,27 +43,30 @@ class ChatAppMessageTypeComponent extends Component
                message : event.target.value
             });
         // }
-        // console.log(this.state.message);
+        console.log('state message : - ');        
+        console.log(this.state.message);
+        console.log(this.state.message.length);
         // console.log(event.target.value);        
     }
 
     message_send_function(event)
     {
         event.preventDefault();
-        alert('All good');
-        // if(this.state.message != null)
-        // {
-        //     if(/^[a-zA-Z0-9.][\w!]{5,30}$/g.test(this.state.message))
-        //     {
-        //         chat_service.chat_app_socket_emit(this.state.message);
-        //     }
-        //     else {
-        //         alert('Invalid Message');
-        //     }
-        // }
-        // else {
-        //     alert('Invalid Message');
-        // }
+        // alert('All good');
+        if(this.state.message.length != null)
+        {
+            chat_service.chat_app_socket_emit(this.state.message);
+            // if(/^[a-zA-Z0-9]{5,30}$/g.test(this.state.message))
+            // {
+            //     chat_service.chat_app_socket_emit(this.state.message);
+            // }
+            // else {
+            //     alert('Invalid Message !');
+            // }
+        }
+        else {
+            alert('Invalid Message');
+        }
     }
 
     render() {

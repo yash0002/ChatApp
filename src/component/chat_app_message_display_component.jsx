@@ -45,7 +45,7 @@ class ChatAppMessageDisplayComponent extends Component {
     }
     componentDidMount() {
 
-        console.log('------------------------');
+        // console.log('------------------------');
         var self = this;
         chat_service.chat_app_socket_on(function (list) {
             console.log(list);
@@ -66,14 +66,14 @@ class ChatAppMessageDisplayComponent extends Component {
     }
 
     render() {
-        console.log("state property ", this.state.message_display);
+        // console.log("state property ", this.state.message_display);
 
         return (
             <div>
                 {Object.keys(this.state.message_display).map(key => {
-                    console.log("key:.....", key);
-                    console.log(this.state.message_display[key].message);
-                    console.log(this.state.message_display[key].email_id);
+                    // console.log("key:.....", key);
+                    // console.log(this.state.message_display[key].message);
+                    // console.log(this.state.message_display[key].email_id);
                     return (
                         <div key={key}>
 
