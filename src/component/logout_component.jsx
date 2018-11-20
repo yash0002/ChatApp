@@ -6,17 +6,15 @@
  * @module axios, react, material-ui
  */
 import React,{Component} from 'react';
-import { Button, TextField, FormLabel } from '@material-ui/core';
+import { Button } from '@material-ui/core';
 import user_service from '../services/user_service';
-import {Redirect} from 'react-router-dom';
-import {browserHistory} from 'react-router';
 
 /**
  * @description Class Component to render display option we want on page
  * @extends React Component to make it a component
  * @function render to display on webpage & to write html code
  */
-class Logout_component extends Component
+class LogoutComponent extends Component
 {
 
     /**
@@ -79,4 +77,4 @@ class Logout_component extends Component
 /**
  * @exports Register Class as Component in react tech
  */
-export default Logout_component;
+export default LogoutComponent;

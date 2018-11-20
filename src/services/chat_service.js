@@ -3,10 +3,8 @@
  * @author  Yash
  * @since   11/11/2018
  * @version 1.5.01
- * @module axios from ajax
+ * @module socket_io to make two way communication possible
  */
-// import axios from 'axios';
-const axios = require('axios');
 const io = require('socket.io-client');
 const socket_io = io.connect('http://localhost:3001');
 
@@ -22,10 +20,10 @@ function chat_app_socket_emit(message_sent)
     // let  message_with_user_email = {"message":message_sent, "user_email_id": user_login};
     // socket_io.emit('chat_message', message_with_user_email)
     console.log('user_login : ',user_login);
-    let object_request = {
-        email_id : user_login,
-        message_sent : message_sent
-    };
+    // let object_request = {
+    //     email_id : user_login,
+    //     message_sent : message_sent
+    // };
     
     socket_io.emit('chat_message', user_login, message_sent);
     
@@ -67,10 +65,12 @@ function chat_app_socket_on()
     // console.log(array_email_id);    
     for(let i in array_message)
     {
-        array_chats_final.push({ "msg":array_message[i] +' By :- '+ array_email_id[i]} );
+        array_chats_final.push({
+            "msg": array_message[i]
+        }  );//+' By :- '+ array_email_id[i] );
     }
-    // console.log('---------------------final chats here on client side ------------------------');
-    // console.log(array_chats_final);    
+    console.log('---------------------final chats here on client side ------------------------');
+    console.log('string ',array_chats_final);    
     });
     return array_chats_final;
 }

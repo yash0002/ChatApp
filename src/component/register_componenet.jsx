@@ -6,7 +6,7 @@
  * @package react, material-ui/core
  */
 import React from 'react';
-import { Button, TextField, FormLabel } from '@material-ui/core';
+import { Button, TextField } from '@material-ui/core';
 import user_service from '../services/user_service';
 
 /**
@@ -14,7 +14,7 @@ import user_service from '../services/user_service';
  * @extends React Component to make it a component
  * @function render to display on webpage & to write html code
  */
-class Register_component extends React.Component
+class RegisterComponent extends React.Component
 {
 
     /**
@@ -145,4 +145,4 @@ class Register_component extends React.Component
 /**
  * @exports Register Class as Component in react tech
  */
-export default Register_component;
+export default RegisterComponent;

@@ -6,14 +6,14 @@
  * @module axios, react, material-ui
  */
 import React,{Component} from 'react';
-import { Button, TextField, FormLabel } from '@material-ui/core';
+import { Button, TextField } from '@material-ui/core';
 import chat_service from '../services/chat_service';
 /**
  * @description Class Component to render display option we want on page
  * @extends React Component to make it a component
  * @function render to display on webpage & to write html code
  */
-class Chat_App_Message_type_Component extends Component
+class ChatAppMessageTypeComponent extends Component
 {
     /**
      * @description setting value of any text field to some object element declared in constructor
@@ -48,7 +48,7 @@ class Chat_App_Message_type_Component extends Component
        
          return (
             <div display = "inline-block" >
-                <Button onClick={this.message_send_function}><img src = {require('../images/message_send_arrow.jpg')} alt="User Registration" id = "chat-send-image" /></Button>
+                <Button onClick={this.message_send_function} id = "button-with-image"><img src = {require('../images/message_send_arrow.jpg')} alt="User Registration" id = "chat-send-image" /></Button>
                 <TextField label="Text Message" inputProps={{ maxLength: 25 }} type = "TextField"  value = {this.state.message} onChange={this.setting_message_value_function}></TextField>
             </div>   
         );
@@ -59,4 +59,4 @@ class Chat_App_Message_type_Component extends Component
  * @exports Chat_App_Message_type_Component Class as Component in react tech
  */
 
-export default Chat_App_Message_type_Component;
+export default ChatAppMessageTypeComponent;

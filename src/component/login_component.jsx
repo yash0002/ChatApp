@@ -6,7 +6,7 @@
  * @module axios, react, material-ui
  */
 import React,{Component} from 'react';
-import { Button, TextField, FormLabel } from '@material-ui/core';
+import { Button, TextField, } from '@material-ui/core';
 import user_service from '../services/user_service';
 
 /**
@@ -14,7 +14,7 @@ import user_service from '../services/user_service';
  * @extends React Component to make it a component
  * @function render to display on webpage & to write html code
  */
-class Login_component extends Component
+class LoginComponent extends Component
 {
 
     /**
@@ -83,7 +83,16 @@ class Login_component extends Component
                     console.log('password : '+this.state.password);
                     user_service.login_service(this.state.email_id, this.state.password);                   
                 }
+                else {
+                    alert('Password Invalid');
+                }
             }
+            else {
+                alert("Password Invalid");
+            }
+        }
+        else {
+            alert("Email_id Invalid");
         }
     }
 
@@ -109,4 +118,4 @@ class Login_component extends Component
  * @exports Register Class as Component in react tech
  */
 
-export default Login_component;
+export default LoginComponent;

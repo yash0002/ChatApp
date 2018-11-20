@@ -24,6 +24,7 @@ function login_service(email_id, password)
         console.log(response);
         if(response.data) {
             console.log('successful register');
+            alert('Successful Register');
             /*
             * one way to save item in localstorage by creating json object/format
                 const person_log_in = {
@@ -41,12 +42,13 @@ function login_service(email_id, password)
             window.location.replace('/chat_page')
         }
         else {
-            console.log('Login Failed');
-            
+            console.log('No Such User Exits');
+            alert('No Such User Exits');
         }
     }).catch(error => {
-        console.log('Login error up on server');
+        console.log('error occured, try later');
         console.log(error);
+        alert('error occured, try later');
     })
 }
 
@@ -66,6 +68,7 @@ function register_service(email_id, password)
         console.log(response);
         if(response.data) {
             console.log('successful register client services');
+            alert('successful register client services');
             //return response.redirectTo('/login');
             window.location.replace("/");
             // this.setState({
@@ -74,10 +77,11 @@ function register_service(email_id, password)
         }
         else {
             console.log('Registration Failed');
-            
+            alert('Registration Failed');
         }
     }).catch(error => {
-        console.log('Registration error up on server');
+        alert('error up on server');
+        console.log('error occured, try later');
         console.log(error);
     })
 }
@@ -95,17 +99,19 @@ function logout_service()
     .then(response => {
         console.log(response);
         if(response.data) {
-            console.log('successful logout');
+            console.log('Successful Logout');
             localStorage.clear();
             window.location.replace("/");
             // return response;
         }
         else {
             console.log('logout Failed');
+            alert('Logout Failed ');
             return null;
         }
     }).catch(error => {
-        console.log('logout error up on server');
+        console.log('Logout error up on server');
+        alert('error occured, try later');
         console.log(error);
         return null;
     })
