@@ -33,7 +33,7 @@ class RegisterComponent extends React.Component
         // this.email_id_setting_variable = this.email_id_setting_variable.bind(this);
         // this.pass1_setting_variable = this.pass1_setting_variable.bind(this);
         // this.pass_2_setting_variable = this.pass_2_setting_variable.bind(this);
-        this.check_both_email_password = this.check_both_email_password.bind(this);
+        this.register = this.register.bind(this);
         this.setAll = this.setAll.bind(this);
     }
 
@@ -83,9 +83,9 @@ class RegisterComponent extends React.Component
     /**
      * @description method to set value to class state variable
      * @param {Event} evt 
-     * @function check_both_email_password to go for register procedure when send button clicked & asked for response from server via request
+     * @function register to go for register procedure when send button clicked & asked for response from server via request
      */
-    check_both_email_password(event)
+    register(event)
     {
         event.preventDefault();
         console.log('inside if-else method');
@@ -127,7 +127,11 @@ class RegisterComponent extends React.Component
                 <TextField label="Enter Password" type = "password" name = "pass_1" value = {this.state.pass_1} onChange = {this.setAll}></TextField>
                 <br/><br/>
 
-                <TextField label="Enter Password Again" type = "password" name = "pass_2" value = {this.state.pass_2} onChange = {this.setAll}></TextField>
+                <TextField label="Enter Password Again" type = "password" name = "pass_2" value = {this.state.pass_2} onChange = {this.setAll} onKeyPress ={ (event) => {
+                    if (event.key === 'Enter') {
+                        this.register(event)
+                    } } }>
+                </TextField>
 
                 {/* 
                 *@des this is when setting value of each text field individually
@@ -143,7 +147,7 @@ class RegisterComponent extends React.Component
              
                 <br/><br/>
                 <a href = "/login" id = "link-display">Already a member</a>
-                <Button onClick = {this.check_both_email_password}>Register</Button>
+                <Button onClick = {this.register}>Register</Button>
             </div>                
         );
     }

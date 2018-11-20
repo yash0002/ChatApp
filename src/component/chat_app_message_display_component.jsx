@@ -7,7 +7,7 @@
  */
 import React, { Component } from "react";
 import chat_service from '../services/chat_service';
-var async = require('async');
+// var async = require('async');
 // // import promise from 'Promise';
 //------------------------------------------------------
 //----------------Example of Async Waterfall------------
@@ -44,60 +44,48 @@ class ChatAppMessageDisplayComponent extends Component {
         }
     }
     componentDidMount() {
-        console.log("component mounted");
-        // var display_array = chat_service.chat_app_socket_on();
-        // console.log("displayArray----", display_array);
-       
-        async.waterfall ([
-            function(done) {
-                console.log('Before Function calls');
-                var display_array = chat_service.chat_app_socket_on();
-                console.log("displayArray----", display_array);
-                done(null, display_array);
-            }, 
-            function(result_display_array, done) {
-                console.log('second function');
-                console.log('result_display_array length', result_display_array);
-                
-                var msg1 = '';
-                for (var i = 0; i < result_display_array.length; i++) {
-                    msg1 = msg1 + result_display_array[i].msg;
-                    console.log('Message String ',msg1);
-                }
-                // result_display_array.forEach(element => {
-                //     console.log(element);
-                    
-                // });
-                // console.log(msg1);
-                
-                done(null, msg1);
-            } ]
-            , function (err, result) {
-                    if(err) {
-                        console.log('error on component page while fetching chats');
-                        console.log(err);
-                    }
-                    else {
-                        console.log('------------------display Chats---------------');
-                        console.log('chat_display ',result);
-                        // this.setState({
-                        //     message_display: result 
-                        // });
-                    }
-                }
-                )
-        // console.log("messsage-display: ", this.state.message_display);
+
+        console.log('------------------------');
+        var self = this;
+        chat_service.chat_app_socket_on(function (list) {
+            console.log(list);
+
+            if (list !== null && list !== undefined) {
+                self.setState({
+                    message_display: list
+                })
+            }
+            else {
+                self.setState({
+                    message_display: []
+                })
+            }
+        })
+
+
     }
 
     render() {
-        console.log(this.state.message_display);
+        console.log("state property ", this.state.message_display);
 
         return (
             <div>
-                {/* {this.state.message_display.map(key => { */}
-                {/* console.log("fssdfsdf",key); */}
+                {Object.keys(this.state.message_display).map(key => {
+                    console.log("key:.....", key);
+                    console.log(this.state.message_display[key].message);
+                    console.log(this.state.message_display[key].email_id);
+                    return (
+                        <div key={key}>
 
-                {/* // })} */}
+                            <div>
+                                {this.state.message_display[key].message}
+                            </div>
+                            <div>
+                                {this.state.message_display[key].email_id}
+                            </div>
+                        </div>
+                    )
+                })}
             </div>
         );
     }

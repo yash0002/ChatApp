@@ -31,35 +31,48 @@ class ChatAppMessageTypeComponent extends Component
 
     setting_message_value_function(event)
     {
-        this.setState({
-            message : event.target.value
-        });        
+        // if(event.key === 'Enter') {
+        //     alert('enter pressed');
+        //     this.setState({
+        //         message : '\n'
+        //      });
+        // }
+        // else {
+        
+            this.setState({
+               message : event.target.value
+            });
+        // }
+        // console.log(this.state.message);
+        // console.log(event.target.value);        
     }
 
     message_send_function(event)
     {
         event.preventDefault();
-        if(this.state.message != null)
-        {
-            if(/^[a-zA-Z0-9.][\w!]{5,25}$/g.test(this.state.message))
-            {
-                chat_service.chat_app_socket_emit(this.state.message);
-            }
-            else {
-                alert('Invalid Message');
-            }
-        }
-        else {
-            alert('Invalid Message');
-        }
+        alert('All good');
+        // if(this.state.message != null)
+        // {
+        //     if(/^[a-zA-Z0-9.][\w!]{5,30}$/g.test(this.state.message))
+        //     {
+        //         chat_service.chat_app_socket_emit(this.state.message);
+        //     }
+        //     else {
+        //         alert('Invalid Message');
+        //     }
+        // }
+        // else {
+        //     alert('Invalid Message');
+        // }
     }
 
     render() {
-       
+    //    console.log(this.state.message);              
          return (
             <div display = "inline-block" >
                 <Button onClick={this.message_send_function} id = "button-with-image"><img src = {require('../images/message_send_arrow.jpg')} alt="User Registration" id = "chat-send-image" /></Button>
-                <TextField label="Text Message" inputProps={{ maxLength: 25 }} type = "TextField"  value = {this.state.message} onChange={this.setting_message_value_function}></TextField>
+                <TextField id="standard-multiline-flexible" rowsMax="3" label="Type Message" multiline margin="normal" inputProps={{ maxLength: 30 }} type = "TextField"  value = {this.state.message} onChange={this.setting_message_value_function} ></TextField>
+                {/* onKeyPress = {this.setting_message_value_function} multiLine={true} */}
             </div>   
         );
     }

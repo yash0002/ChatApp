@@ -38,41 +38,14 @@ function chat_app_socket_emit(message_sent)
  * @param {String} email_id 
  * @param {String} password 
  */
-function chat_app_socket_on()
+function chat_app_socket_on(callback)
 {
-    // console.log('Service-client-chat-app-socket-on');
-    let array_message = [], array_email_id = [], array_chats_final = [];
-    
     socket_io.on('response_message', function(response) {
-    // console.log('reponse on client side in service.js page : -----');
-    // console.log(response.message);
-    // console.log(response.email_id);        
-    for(let i in response.message)
-    {
-        // console.log('i');
-        // console.log(response.message[i]);        
-        array_message.push(response.message[i]);
-    }
-    // console.log('---------------------individuals chats here on client side ------------------------');
-    // console.log(array_message);    
-
-    for(let i in response.email_id)
-    {
-        // console.log(response.email_id[i]);
-        array_email_id.push(response.email_id[i]);
-    }
-    // console.log('---------------------individual sender here on client side ------------------------');
-    // console.log(array_email_id);    
-    for(let i in array_message)
-    {
-        array_chats_final.push({
-            "msg": array_message[i]
-        }  );//+' By :- '+ array_email_id[i] );
-    }
-    console.log('---------------------final chats here on client side ------------------------');
-    console.log('string ',array_chats_final);    
+    console.log('reponse on client side in service.js page : -----');
+    console.log(response);   
+    var res = response; 
+     callback(res);
     });
-    return array_chats_final;
 }
 
 module.exports = {chat_app_socket_emit, chat_app_socket_on};
