@@ -25,12 +25,14 @@ class LoginComponent extends Component
     constructor(props) {
         super(props);
         this.state = {
+            hasError : false,
             email_id : "",
             password : ""
         };
         this.setting_emailid = this.setting_emailid.bind(this);
         this.setting_password = this.setting_password.bind(this);
         this.login_process = this.login_process.bind(this);
+        this.login_process_key_press = this.login_process_key_press.bind(this);
     }
 
     /**
@@ -60,7 +62,18 @@ class LoginComponent extends Component
         );
     }
 
-
+    /**
+     * @description this is for catching any error if occurs
+     * @param {Error} error 
+     * @param {data} info 
+     */
+    componentDidCatch(error, info) {
+        this.setState({
+            hasError : true
+        })
+        //Log error to error reporting service
+        //logErrorToMyService(error, info);
+    }
     /**
      * @description method to set value to class state variable
      * @param {Event} evt 
@@ -69,10 +82,6 @@ class LoginComponent extends Component
     login_process(event)
     {
         event.preventDefault();
-        console.log('inside if-else method');
-        console.log('pass : ', this.state.password);
-        console.log('email - id : '+this.state.email_id);
-
         if(/^[a-z](\.?[a-z0-9]){3,}@g(oogle)?mail\.com$/g.test(this.state.email_id))
         {
             if(this.state.password.length >= 5)
@@ -96,6 +105,15 @@ class LoginComponent extends Component
         }
     }
 
+    login_process_key_press(event)
+    {
+        if (event.key === 'Enter') {
+            this.login_process(event);
+        }
+        else {
+            alert('Invalid Key Pressed');
+        }
+    }
     render() {
        
          return (
@@ -105,12 +123,12 @@ class LoginComponent extends Component
                 <TextField label="Email_id" value = {this.state.email_id} onChange={this.setting_emailid} ></TextField>
                 <br/><br/>
 
-                <TextField label="Password" type = "password" value = {this.state.password} onChange={this.setting_password}></TextField>
+                <TextField label="Password" type = "password" value = {this.state.password} onChange={this.setting_password} ></TextField>
                 <br/><br/>
                 <a id = "link-display" href = "/register" >New User</a> &nbsp;&nbsp;&nbsp;
                 <Button onClick = {this.login_process} >Login</Button>
             </div>   
-        );
+        );//onKeyPress = {this.login_process_key_press}
     }
 }
 

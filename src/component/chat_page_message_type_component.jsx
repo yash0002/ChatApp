@@ -33,15 +33,25 @@ class ChatAppMessageTypeComponent extends Component
     {
         this.setState({
             message : event.target.value
-        });
-        console.log(this.state.message);
-        
+        });        
     }
 
     message_send_function(event)
     {
         event.preventDefault();
-        chat_service.chat_app_socket_emit(this.state.message);
+        if(this.state.message != null)
+        {
+            if(/^[a-zA-Z0-9.][\w!]{5,25}$/g.test(this.state.message))
+            {
+                chat_service.chat_app_socket_emit(this.state.message);
+            }
+            else {
+                alert('Invalid Message');
+            }
+        }
+        else {
+            alert('Invalid Message');
+        }
     }
 
     render() {

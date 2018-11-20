@@ -20,7 +20,7 @@ class ChatAppPageScreen extends Component
     render() {
         return (
             <div className = "centre-content">
-                <br/><br/>
+                <br/>
                 <img src={require('../images/messaging_logo.jpg')} alt="User Registration" id = "image-inline-div-chatting-page" /><br/><br/>
                 <ChatAppMessageDisplayComponent/>
                 <ChatAppMessageTypeComponent/>

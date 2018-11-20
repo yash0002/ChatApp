@@ -42,8 +42,6 @@ class ChatAppMessageDisplayComponent extends Component {
         this.state = {
             message_display: ""
         }
-
-
     }
     componentDidMount() {
         console.log("component mounted");

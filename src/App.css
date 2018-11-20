@@ -23,8 +23,8 @@
 
 #image-inline-div-chatting-page {
   display: inline-block;
-  width: 80px;
-  height: 80px;
+  width: 70px;
+  height: 70px;
 }
 
 #chat-text-area-style {
@@ -36,8 +36,8 @@
 
 #chat-send-image {
   display: inline-block;
-  width: 40px;
-  height: 40px;
+  width: 35px;
+  height: 35px;
 }
 
 #button-with-image {
