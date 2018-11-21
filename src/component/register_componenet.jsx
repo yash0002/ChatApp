@@ -88,18 +88,12 @@ class RegisterComponent extends React.Component
     register(event)
     {
         event.preventDefault();
-        console.log('inside if-else method');
-
          if(/^[a-z](\.?[a-z0-9]){2,}@g(oogle)?mail\.com$/g.test(this.state.email_id))
          {
              if(/^[a-zA-Z][\w!]{5,9}$/g.test(this.state.password))
              {
-                console.log("emaid id : ", this.state.email_id);   
                 if(this.state.pass_1 === this.state.pass_2)
                 {
-                    alert('All good done');
-                    console.log('pass 1 : ', this.state.pass_1, 'pass 2 : ', this.state.pass_2);
-                    // const redirect_result = 
                     user_service.register_service(this.state.email_id, this.state.pass_1);
                 }
                 else {

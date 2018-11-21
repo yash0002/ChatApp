@@ -6,7 +6,7 @@
  * @module axios, react, material-ui
  */
 import React,{Component} from 'react';
-import { Button } from '@material-ui/core';
+import { Button, AppBar, Toolbar, IconButton, Typography, MenuIcon } from '@material-ui/core';
 import user_service from '../services/user_service';
 
 /**
@@ -66,9 +66,16 @@ class LogoutComponent extends Component
     render() {
        
          return (
-            <div display = "inline-block" >
-                <br/>
-                <Button onClick = {this.logout_process} >Logout</Button>
+            <div display = "inline-block">
+                <AppBar position = "static">
+                    <Toolbar>
+                        <IconButton aria-label='Menu'>
+                            <MenuIcon />
+                        </IconButton>
+                        <Typography variant='h6' color='inherit'>Home</Typography>
+                        <Button onClick = {this.logout_process} >Logout</Button>
+                    </Toolbar>
+                </AppBar>
             </div>   
         );
     }

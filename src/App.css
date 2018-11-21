@@ -37,8 +37,13 @@
   text-align: left;
   margin-left: 430px;
   margin-right: 200px;
+  list-style-type: none;
 }
 
+.menu-bar {
+  margin-left: -12;
+  margin-right: 20;
+}
 
 /*-------Already Defined----------*/
 

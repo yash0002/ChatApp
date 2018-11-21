@@ -1,9 +1,9 @@
 /**
- * @description this is for chats display page component
+ * @description this is for Displaying Users who are online in side bar component
  * @author  Yash
  * @since   11/11/2018
  * @version 1.5.
- * @module axios, react, material-ui
+ * @module react, material-ui
  */
 import React, { Component } from "react";
 import chat_service from '../services/chat_service';
@@ -13,7 +13,7 @@ import chat_service from '../services/chat_service';
  * @extends React Component to make it a component
  * @function render to display on webpage & to write html code
  */
-class ChatAppMessageDisplayComponent extends Component {
+class OnlineUsersComponent extends Component {
 
     /**
      * @description setting value of any text field to some object element declared in constructor
@@ -23,7 +23,7 @@ class ChatAppMessageDisplayComponent extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            message_display: ""
+            users_display: ""
         }
     }
     componentDidMount() {
