@@ -31,28 +31,14 @@ class ChatAppMessageTypeComponent extends Component
 
     setting_message_value_function(event)
     {
-        // if(event.key === 'Enter') {
-        //     alert('enter pressed');
-        //     this.setState({
-        //         message : '\n'
-        //      });
-        // }
-        // else {
-        
-            this.setState({
-               message : event.target.value
-            });
-        // }
-        console.log('state message : - ');        
-        console.log(this.state.message);
-        console.log(this.state.message.length);
-        // console.log(event.target.value);        
+        this.setState({
+            message : event.target.value
+        });
     }
 
     message_send_function(event)
     {
         event.preventDefault();
-        // alert('All good');
         if(this.state.message.length != null)
         {
             chat_service.chat_app_socket_emit(this.state.message);
@@ -69,11 +55,10 @@ class ChatAppMessageTypeComponent extends Component
         }
     }
 
-    render() {
-    //    console.log(this.state.message);              
+    render() {        
          return (
             <div display = "inline-block" >
-                <Button onClick={this.message_send_function} id = "button-with-image"><img src = {require('../images/message_send_arrow.jpg')} alt="User Registration" id = "chat-send-image" /></Button>
+                <Button onClick={this.message_send_function} ><img src = {require('../images/message_send_arrow.jpg')} alt="User Registration" id = "chat-send-image" /></Button>
                 <TextField id="standard-multiline-flexible" rowsMax="3" label="Type Message" multiline margin="normal" inputProps={{ maxLength: 30 }} type = "TextField"  value = {this.state.message} onChange={this.setting_message_value_function} ></TextField>
                 {/* onKeyPress = {this.setting_message_value_function} multiLine={true} */}
             </div>   

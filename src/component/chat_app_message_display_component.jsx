@@ -54,15 +54,15 @@ class ChatAppMessageDisplayComponent extends Component {
                     // console.log(this.state.message_display[key].message);
                     // console.log(this.state.message_display[key].email_id);
                     return (
-                        <div key={key}>
+                        <div id = "chat_show" key={key}>
                             
-                            <div>
-                                {this.state.message_display[key].message}
-                                
+                            <div id = "each_chat">
+                                {/* <TextField id = "outlined-multiline-flexible" label = "Chats" multiline rowsMax = "10" variant = "outline" value = {this.state.message_display[key].message} ></TextField> */}
+                                {this.state.message_display[key].email_id} : {this.state.message_display[key].message}<nav></nav>
                             </div>
-                            <div>
+                            {/* <div>
                                 {this.state.message_display[key].email_id}
-                            </div>
+                            </div> */}
                         </div>
                     )
                 })}

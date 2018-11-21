@@ -20,7 +20,7 @@ class LoginScreen extends React.Component
         return (
             <div className = "centre-content">
                 <br/><br/><br/>
-                <img src = {require('../images/user_image.jpg')} alt="User Registration" id = "img-inline-div" /><br />
+                <img src = {require('../images/user_image.jpg')} alt="User Registration" id = "img-top" /><br />
                 <LoginComponent />
             </div>
         );

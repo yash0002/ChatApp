@@ -21,7 +21,7 @@ class ChatAppPageScreen extends Component
         return (
             <div className = "centre-content">
                 <br/>
-                <img src={require('../images/messaging_logo.jpg')} alt="User Registration" id = "image-inline-div-chatting-page" /><br/><br/>
+                <img src={require('../images/messaging_logo.jpg')} alt="User Registration" id = "img-top-chat-page" /><br/><br/>
                 <ChatAppMessageDisplayComponent/>
                 <ChatAppMessageTypeComponent/>
                 <LogoutComponent/>

@@ -146,7 +146,7 @@ class RegisterComponent extends React.Component
                 <TextField label="Enter Password Again" name = "password2" value = {this.state.pass_2} onChange = {this.pass_2_setting_variable}></TextField> */}
              
                 <br/><br/>
-                <a href = "/login" id = "link-display">Already a member</a>
+                <a href = "/" id = "links-display">Already a member</a>
                 <Button onClick = {this.register}>Register</Button>
             </div>                
         );

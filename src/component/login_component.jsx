@@ -124,7 +124,7 @@ class LoginComponent extends Component
                     } } }>
                 </TextField>
                 <br/><br/>
-                <a id = "link-display" href = "/register" >New User</a> &nbsp;&nbsp;&nbsp;
+                <a id = "links-display" href = "/register" >New User</a> &nbsp;&nbsp;&nbsp;
                 <Button onClick = {this.login_process} >Login</Button>
             </div>   
         );//onKeyPress = {this.login_process_key_press}

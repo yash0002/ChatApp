@@ -10,46 +10,35 @@
   text-align: center;
 }
 
-#img-inline-div {
+#img-top {
   display: inline-block;
-  width: 100px;
-  height: 100px;
+  width: 80px;
+  height: 80px;
 }
 
-#link-display {
+#img-top-chat-page {
+  display: inline-block;
+  width: 75px;
+  height: 75px;
+}
+
+#links-display {
   color: #282c34;
   text-decoration: none;
 }
 
-#image-inline-div-chatting-page {
-  display: inline-block;
-  width: 70px;
-  height: 70px;
-}
-
-#chat-text-area-style {
-  display: inline-block;
-  width: 280px;
-  height: 350px;
-  resize: none;
-}
-
 #chat-send-image {
   display: inline-block;
-  width: 35px;
-  height: 35px;
+  width: 40px;
+  height: 40px;
 }
 
-#button-with-image {
-  background-size: cover;
+#chat_show {
+  text-align: left;
+  margin-left: 430px;
+  margin-right: 200px;
 }
 
-#chat-div {
-  display: inline-block;
-  width: 260px;
-  height: 300px;
-  border: 1px solid black;
-}
 
 /*-------Already Defined----------*/
 
