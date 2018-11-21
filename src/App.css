@@ -38,11 +38,11 @@
   margin-left: 430px;
   margin-right: 200px;
   list-style-type: none;
+  border: #282c34;
 }
 
-.menu-bar {
-  margin-left: -12;
-  margin-right: 20;
+#logout-button-style {
+  margin-left: 850px;
 }
 
 /*-------Already Defined----------*/

@@ -6,9 +6,9 @@
  * @module axios, react, material-ui
  */
 import React,{Component} from 'react';
-import { Button, AppBar, Toolbar, IconButton, Typography, MenuIcon } from '@material-ui/core';
+import { Button, AppBar, Toolbar, IconButton, Typography } from '@material-ui/core';
 import user_service from '../services/user_service';
-
+import MenuIcon from '@material-ui/icons/Menu';
 /**
  * @description Class Component to render display option we want on page
  * @extends React Component to make it a component
@@ -73,7 +73,7 @@ class LogoutComponent extends Component
                             <MenuIcon />
                         </IconButton>
                         <Typography variant='h6' color='inherit'>Home</Typography>
-                        <Button onClick = {this.logout_process} >Logout</Button>
+                        <Button onClick = {this.logout_process} id = "logout-button-style" >Logout</Button>
                     </Toolbar>
                 </AppBar>
             </div>   
