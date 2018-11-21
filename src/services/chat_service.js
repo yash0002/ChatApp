@@ -41,10 +41,8 @@ function chat_app_socket_emit(message_sent)
 function chat_app_socket_on(callback)
 {
     socket_io.on('response_message', function(response) {
-    // console.log('reponse on client side in service.js page : -----');
-    // console.log(response);   
-    var res = response; 
-     callback(res);
+    // var res = response; 
+     callback(response);
     });
 }
 

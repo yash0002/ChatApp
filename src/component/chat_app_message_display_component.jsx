@@ -7,24 +7,7 @@
  */
 import React, { Component } from "react";
 import chat_service from '../services/chat_service';
-// var async = require('async');
-// // import promise from 'Promise';
-//------------------------------------------------------
-//----------------Example of Async Waterfall------------
-// async_waterfall ([
-//     function(callback) {
-//         var display_array = chat_service.chat_app_socket_on();
-//         callback(null, display_array);
-//     } ], function (err, result) {
-//             if(err) {
-//                 console.log('error on component page while fetching chats');
-//                 console.log(err);
-//             }
-//             else {
-//                 console.log('------------------display array---------------');
-//                 console.log(result);
-//             }
-//         })
+
 /**
  * @description Class Component to render display option we want on page
  * @extends React Component to make it a component
@@ -45,10 +28,8 @@ class ChatAppMessageDisplayComponent extends Component {
     }
     componentDidMount() {
 
-        // console.log('------------------------');
         var self = this;
         chat_service.chat_app_socket_on(function (list) {
-            console.log(list);
 
             if (list !== null && list !== undefined) {
                 self.setState({
@@ -66,8 +47,6 @@ class ChatAppMessageDisplayComponent extends Component {
     }
 
     render() {
-        // console.log("state property ", this.state.message_display);
-
         return (
             <div>
                 {Object.keys(this.state.message_display).map(key => {
@@ -76,9 +55,10 @@ class ChatAppMessageDisplayComponent extends Component {
                     // console.log(this.state.message_display[key].email_id);
                     return (
                         <div key={key}>
-
+                            
                             <div>
                                 {this.state.message_display[key].message}
+                                
                             </div>
                             <div>
                                 {this.state.message_display[key].email_id}
