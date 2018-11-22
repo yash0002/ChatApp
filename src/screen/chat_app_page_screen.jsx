@@ -22,7 +22,7 @@ class ChatAppPageScreen extends Component
         return (
             <div className = "centre-content">
                 <LogoutComponent/><br/><br/>
-                <UsersLoginComponent/>
+                {/* <UsersLoginComponent/> */}
                 {/* <img src={require('../images/messaging_logo.jpg')} alt="User Registration" id = "img-top-chat-page" /><br/><br/> */}
                 <ChatAppMessageDisplayComponent/>
                 <ChatAppMessageTypeComponent/>

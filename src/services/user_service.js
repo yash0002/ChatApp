@@ -23,8 +23,8 @@ function login_service(email_id, password)
     .then(response => {
         console.log(response);
         if(response.data) {
-            console.log('successful register');
-            alert('Successful Register');
+            console.log('successful login');
+            alert('Successful Login');
             /*
             * one way to save item in localstorage by creating json object/format
                 const person_log_in = {
