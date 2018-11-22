@@ -36,4 +36,15 @@ function chat_app_socket_on(callback)
     });
 }
 
-module.exports = {chat_app_socket_emit, chat_app_socket_on};
+function chat_app_users_login(callback)
+{
+    // let users_login = [];
+    let users_logged_in = localStorage.getItem("users_logged_in");
+    // users_login.push(users_SaveInLocalStorage);
+    console.log('users_logged_in');
+    
+    console.log(users_logged_in);
+    return users_logged_in;
+}
+
+module.exports = {chat_app_socket_emit, chat_app_socket_on, chat_app_users_login};

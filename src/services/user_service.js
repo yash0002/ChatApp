@@ -38,7 +38,10 @@ function login_service(email_id, password)
             
             * another way is to save in cookies but its size is small that's why above two are good to go
             */
-            localStorage.setItem('user_login', email_id);            
+            localStorage.setItem('user_login', email_id);     
+            let users_logged_in = new Set();
+            users_logged_in.add(email_id);
+            localStorage.setItem('users_logged_in', users_logged_in);     
             window.location.replace('/chat_page')
         }
         else {
