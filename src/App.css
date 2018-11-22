@@ -53,6 +53,7 @@
 
 #side-bar {
   top : 100px;
+  overflow-x: scroll;
 }
 
 #logout-button-style {

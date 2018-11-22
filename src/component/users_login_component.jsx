@@ -11,10 +11,10 @@ import chat_service from '../services/chat_service';
 // import { withStyles } from '@material-ui/core/styles';
 import Drawer from '@material-ui/core/Drawer';
 import CssBaseline from '@material-ui/core/CssBaseline';
-import AppBar from '@material-ui/core/AppBar';
-import Toolbar from '@material-ui/core/Toolbar';
+// import AppBar from '@material-ui/core/AppBar';
+// import Toolbar from '@material-ui/core/Toolbar';
 import List from '@material-ui/core/List';
-import Typography from '@material-ui/core/Typography';
+// import Typography from '@material-ui/core/Typography';
 // import Divider from '@material-ui/core/Divider';
 import ListItem from '@material-ui/core/ListItem';
 // import ListItemIcon from '@material-ui/core/ListItemIcon';
@@ -75,13 +75,14 @@ class UsersLoginComponent extends Component {
         this.state = {
             user_login_display: []
         }
+        this.peer_chat_trigger = this.peer_chat_trigger.bind(this);
     }
     componentDidMount() {
       
     var self = this;
       chat_service.chat_app_users_login(function (list) {
-        console.log('list on jsx');
-        console.log(list);        
+        // console.log('list on jsx');
+        // console.log(list);        
         
         if (list !== null && list !== undefined) {
           self.setState({
@@ -96,9 +97,17 @@ class UsersLoginComponent extends Component {
       })
     }
 
+    peer_chat_trigger(event) {
+      console.log('which one clicked');      
+      console.log(event.target.id);
+      console.log(event.target.key);
+      window.location.replace('/peer_page');
+
+    }
+
     render() {
-      console.log('state set value');
-      console.log(this.state.user_login_display);  
+      // console.log('state set value');
+      // console.log(this.state.user_login_display);  
       
         return (
             <div styles = {styles.root}>
@@ -120,8 +129,10 @@ class UsersLoginComponent extends Component {
                 {Object.keys(this.state.user_login_display).map(key => {
                   return (
                   // <ListItem button key={text}>
-                      <ListItem>
+                      <ListItem button id = {this.state.user_login_display[key]} onClick = {this.peer_chat_trigger} key = {this.state.user_login_display[key]}>
                         <ListItemText primary={this.state.user_login_display[key]} />
+                        {console.log('button values : ', this.state.user_login_display[key])}
+                        
                       {/* <ListItemIcon>{index % 2 === 0 ? <InboxIcon /> : <MailIcon />}</ListItemIcon> */}
                       {/* <ListItemText primary={text} /> */}
                       </ListItem>

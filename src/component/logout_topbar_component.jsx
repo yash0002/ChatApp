@@ -28,6 +28,7 @@ class LogoutTopBarComponent extends Component
             redirect: false
         }
         this.logout_process = this.logout_process.bind(this);
+        this.group_chat_switch = this.group_chat_switch.bind(this);
     }
 
     /**
@@ -63,6 +64,10 @@ class LogoutTopBarComponent extends Component
         // }
     }
 
+    group_chat_switch(event) {
+        window.location.replace('/chat_page');
+    }
+
     render() {
        
          return (
@@ -73,7 +78,7 @@ class LogoutTopBarComponent extends Component
                             <MenuIcon />
                         </IconButton>
                         <Typography variant='h6' color='inherit'>Home</Typography>
-                        <Button id = "groupchat-button-style" ><a id = "links-display" href = "/chat_page" ></a>Group Chat</Button>
+                        <Button id = "groupchat-button-style" onClick = {this.group_chat_switch}>Group Chat</Button>
                         <Button onClick = {this.logout_process} id = "logout-button-style" >Logout</Button>
                     </Toolbar>
                 </AppBar>
