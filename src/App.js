@@ -4,6 +4,8 @@ import './App.css';
 import RegisterScreen from './screen/register_screen'
 import LoginScreen from './screen/login_screen'
 import ChatAppPageScreen from './screen/chat_app_page_screen'
+import ForgotPasswordScreen1 from './screen/forgot_password_1_screen'
+import ForgotPasswordScreen2 from './screen/forgot_password_2_screen'
 import { BrowserRouter as Router, Route } from "react-router-dom";
 //import Register_component from './component/register_componenet';
 import io from 'socket.io-client';
@@ -45,6 +47,8 @@ class App extends Component {
             {/* <Route exact path="/login" component={Login} /> */}
             <Route path = "/chat_page" component={ChatAppPageScreen} />
             <Route path = "/register" component={RegisterScreen} />
+            <Route path = "/forgotPassword1" component={ForgotPasswordScreen1} />
+            <Route path = "/forgotPassword2" component={ForgotPasswordScreen2} />
           </div>
         </Router>
       

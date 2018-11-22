@@ -125,7 +125,8 @@ class LoginComponent extends Component
                 </TextField>
                 <br/><br/>
                 <a id = "links-display" href = "/register" >New User</a> &nbsp;&nbsp;&nbsp;
-                <Button onClick = {this.login_process} >Login</Button>
+                <Button onClick = {this.login_process} >Login</Button><br/>
+                <a id = "links-display" href = "/forgotPassword1" >Forgot Password</a> &nbsp;&nbsp;&nbsp;
             </div>   
         );//onKeyPress = {this.login_process_key_press}
     }
