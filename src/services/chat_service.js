@@ -32,19 +32,27 @@ function chat_app_socket_emit(message_sent)
 function chat_app_socket_on(callback)
 {
     socket_io.on('response_message', function(response) {
-     callback(response);
+        // console.log('Response on Client side');        
+        // console.log(response);        
+        callback(response);
     });
 }
 
 function chat_app_users_login(callback)
 {
-    // let users_login = [];
-    let users_logged_in = localStorage.getItem("users_logged_in");
-    // users_login.push(users_SaveInLocalStorage);
-    console.log('users_logged_in');
-    
-    console.log(users_logged_in);
-    return users_logged_in;
+    socket_io.on('response_message', function(response) {
+        let users_set = new Set, users = [];
+        
+        response.forEach((y) => {
+            console.log('1 : ', y.email_id);            
+            users_set.add(y.email_id);
+        })
+                
+        users = Array.from(users_set);
+        console.log('Response of users on Client side');        
+        console.log(users);        
+        callback(users);
+       });
 }
 
 module.exports = {chat_app_socket_emit, chat_app_socket_on, chat_app_users_login};

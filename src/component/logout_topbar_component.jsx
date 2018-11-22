@@ -14,7 +14,7 @@ import MenuIcon from '@material-ui/icons/Menu';
  * @extends React Component to make it a component
  * @function render to display on webpage & to write html code
  */
-class LogoutComponent extends Component
+class LogoutTopBarComponent extends Component
 {
 
     /**
@@ -73,6 +73,7 @@ class LogoutComponent extends Component
                             <MenuIcon />
                         </IconButton>
                         <Typography variant='h6' color='inherit'>Home</Typography>
+                        <Button id = "groupchat-button-style" ><a id = "links-display" href = "/chat_page" ></a>Group Chat</Button>
                         <Button onClick = {this.logout_process} id = "logout-button-style" >Logout</Button>
                     </Toolbar>
                 </AppBar>
@@ -82,6 +83,6 @@ class LogoutComponent extends Component
 }
 
 /**
- * @exports Register Class as Component in react tech
+ * @exports LogoutTopBarComponent Class as Component in react tech
  */
-export default LogoutComponent;
+export default LogoutTopBarComponent;

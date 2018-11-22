@@ -21,18 +21,19 @@ import ListItem from '@material-ui/core/ListItem';
 import ListItemText from '@material-ui/core/ListItemText';
 // import InboxIcon from '@material-ui/icons/MoveToInbox';
 // import MailIcon from '@material-ui/icons/Mail';
+import {createMuiTheme, MuiThemeProvider, Divider} from '@material-ui/core';
 
 const theme = createMuiTheme({
   overrides: {
-  MuiDrawer: {
-  paperAnchorLeft: {
-  top: 66,
-  width: 230,
-  background: 'white'
-  }
-  }
+    MuiDrawer: {
+      paperAnchorLeft: {
+        top: 66,
+        width: 230,
+        background: 'white'
+      }
+    }
   },
-  })
+})
 
 const drawerWidth = 240;
 
@@ -76,49 +77,59 @@ class UsersLoginComponent extends Component {
         }
     }
     componentDidMount() {
-
-        var self = this;
-        chat_service.chat_app_users_login(function (list) {
-
-            if (list !== null && list !== undefined) {
-                self.setState({
-                    user_login_display: list
-                })
-            }
-            else {
-                self.setState({
-                    user_login_display : []
-                })
-            }
-        })
+      
+    var self = this;
+      chat_service.chat_app_users_login(function (list) {
+        console.log('list on jsx');
+        console.log(list);        
+        
+        if (list !== null && list !== undefined) {
+          self.setState({
+              user_login_display: list
+          })
+        }
+        else {
+          self.setState({
+              user_login_display : []
+          })
+        }
+      })
     }
 
     render() {
+      console.log('state set value');
+      console.log(this.state.user_login_display);  
+      
         return (
             <div styles = {styles.root}>
             <CssBaseline />
-            <AppBar position="fixed" styles = {styles.appBar}>
+            {/* <AppBar position="fixed" styles = {styles.appBar}>
               <Toolbar>
                 <Typography variant="h6" color="inherit" noWrap>
                   Clipped drawer
                 </Typography>
               </Toolbar>
-            </AppBar>
-            <Drawer styles = {styles.drawer} variant="permanent"
-            //  classes={{
-            //     paper: classes.drawerPaper,
-            //   }}
-            >
+            </AppBar> */}
+
+            <MuiThemeProvider theme = {theme} >
+            <Drawer variant="permanent">
               <div styles = {styles.toolbar}/>
               <List>
-                {['Inbox', 'Starred', 'Send email', 'Drafts'].map((text, index) => (
-                  <ListItem button key={text}>
-                    {/* <ListItemIcon>{index % 2 === 0 ? <InboxIcon /> : <MailIcon />}</ListItemIcon> */}
-                    <ListItemText primary={text} />
-                  </ListItem>
-                ))}
+                <ListItem>Users</ListItem>
+                <Divider />
+                {Object.keys(this.state.user_login_display).map(key => {
+                  return (
+                  // <ListItem button key={text}>
+                      <ListItem>
+                        <ListItemText primary={this.state.user_login_display[key]} />
+                      {/* <ListItemIcon>{index % 2 === 0 ? <InboxIcon /> : <MailIcon />}</ListItemIcon> */}
+                      {/* <ListItemText primary={text} /> */}
+                      </ListItem>
+                  )
+                })}
               </List>
             </Drawer>
+            </MuiThemeProvider>
           </div>
         );
     }

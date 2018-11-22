@@ -33,10 +33,19 @@
   height: 45px;
 }
 
+.display_chats {
+  width: 870px;
+  height: 390px;
+  overflow-y: scroll;
+  border: 2px solid #282c34;
+  margin-left: 230px;
+  align-self: center;
+}
+
 #chat_show {
   text-align: left;
-  margin-left: 350px;
-  margin-right: 200px;
+  /* margin-left: 350px;
+  margin-right: 200px; */
   list-style-type: none;
   border: #282c34;
   display: flex;
@@ -47,7 +56,11 @@
 }
 
 #logout-button-style {
-  margin-left: 850px;
+  margin-left: 750px;
+}
+
+#groupchat-button-style {
+  margin-left: 10px;
 }
 
 /*-------Already Defined----------*/

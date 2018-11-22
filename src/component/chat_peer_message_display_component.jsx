@@ -13,7 +13,7 @@ import chat_service from '../services/chat_service';
  * @extends React Component to make it a component
  * @function render to display on webpage & to write html code
  */
-class ChatAppMessageDisplayComponent extends Component {
+class ChatPeerMessageDisplayomponent extends Component {
 
     /**
      * @description setting value of any text field to some object element declared in constructor
@@ -77,4 +77,4 @@ class ChatAppMessageDisplayComponent extends Component {
 /**
  * @exports Chat_App_Message_Display_Component Class as Component in react tech
  */
-export default ChatAppMessageDisplayComponent;
+export default ChatPeerMessageDisplayComponent;

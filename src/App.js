@@ -3,7 +3,8 @@ import React, { Component } from 'react';
 import './App.css';
 import RegisterScreen from './screen/register_screen'
 import LoginScreen from './screen/login_screen'
-import ChatAppPageScreen from './screen/chat_app_page_screen'
+import ChatAppGroupPageScreen from './screen/chat_app_group_page_screen'
+import ChatAppPeerPageScreen from './screen/chat_app_peer_page_screen'
 import ForgotPasswordScreen1 from './screen/forgot_password_1_screen'
 import ForgotPasswordScreen2 from './screen/forgot_password_2_screen'
 import { BrowserRouter as Router, Route } from "react-router-dom";
@@ -45,10 +46,11 @@ class App extends Component {
           <div>
             <Route exact path='/' component = {LoginScreen} />
             {/* <Route exact path="/login" component={Login} /> */}
-            <Route path = "/chat_page" component={ChatAppPageScreen} />
+            <Route path = "/chat_page" component={ChatAppGroupPageScreen} />
             <Route path = "/register" component={RegisterScreen} />
             <Route path = "/forgotPassword1" component={ForgotPasswordScreen1} />
             <Route path = "/forgotPassword2" component={ForgotPasswordScreen2} />
+            <Route path = "/peer_page" component={ChatAppPeerPageScreen} />
           </div>
         </Router>
       
