@@ -60,8 +60,8 @@ function chat_app_users_login(callback)
 function chat_app_peer_socket_on(callback)
 {
     socket_io.on('response_peer_message', function(response) {    
-        console.log('response on service on client');
-        console.log(response);
+        // console.log('response on service on client');
+        // console.log(response);
         
         callback(response);
     });

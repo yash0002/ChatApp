@@ -77,9 +77,6 @@ class ChatPeerMessageDisplayomponent extends Component {
                 }
             }
         }
-        console.log('final chats on peer----array');
-        console.log(final_chats_display);        
-        
         return (
             <div className = "display_chats">
                 
@@ -96,7 +93,7 @@ class ChatPeerMessageDisplayomponent extends Component {
                                     </div>
                                 ) : (
                                     <div id = "each-chat-left">
-                                        {final_chats_display[key].receiver_email_id} : {final_chats_display[key].message}
+                                        {final_chats_display[key].sender_email_id} : {final_chats_display[key].message}
                                     </div>
                                 )}
                                 
