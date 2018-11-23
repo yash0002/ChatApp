@@ -47,7 +47,8 @@ class ChatPeerMessageDisplayomponent extends Component {
     }
 
     render() {
-        console.log('localstorage receiver_user : --', localStorage.getItem('receiver_user'));
+        // console.log('localstorage receiver_user : --', localStorage.getItem('receiver_user'));
+        let user_logged_in = localStorage.getItem('user_login');
         return (
             // <ul>
             <div className = "display_chats">
@@ -59,8 +60,17 @@ class ChatPeerMessageDisplayomponent extends Component {
                         <div id = "chat_show" key={key}>
                             <li>
                             <div id = "each_chat">
+                                {user_logged_in === this.state.message_display[key].email_id ? (
+                                    <div id = "each-chat-right">
+                                        {this.state.message_display[key].email_id} : {this.state.message_display[key].message}
+                                    </div>
+                                ) : (
+                                    <div id = "each-chat-left">
+                                        {this.state.message_display[key].email_id} : {this.state.message_display[key].message}
+                                    </div>
+                                )}
                                 {/* <TextField id = "outlined-multiline-flexible" label = "Chats" multiline rowsMax = "10" variant = "outline" value = {this.state.message_display[key].message} ></TextField> */}
-                                {this.state.message_display[key].email_id} : {this.state.message_display[key].message}<nav></nav>
+                                {/* {this.state.message_display[key].email_id} : {this.state.message_display[key].message}<nav></nav> */}
                                 {/* {this.state.message_display[key].message} */}
                             </div>
                             {/* <div>

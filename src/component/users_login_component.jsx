@@ -103,14 +103,20 @@ class UsersLoginComponent extends Component {
 
       let result = function(event) {
         return new Promise((resolve, reject) => {
-        
-          if(event.target.id !== null && event.target.id !== undefined) {
-            let receiver_user = event.target.id;
-            localStorage.setItem("receiver_user", receiver_user);
-            resolve('success');
+          
+          let already_login_user = localStorage.getItem('user_login');
+          if(event.target.id === already_login_user) {
+            alert('Same Users cannot Interact!!');
           }
           else {
-            reject('error');
+            if(event.target.id !== null && event.target.id !== undefined) {
+              let receiver_user = event.target.id;
+              localStorage.setItem("receiver_user", receiver_user);
+              resolve('success');
+            }
+            else {
+              reject('error');
+            }
           }
         })
       }
