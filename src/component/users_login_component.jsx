@@ -22,6 +22,7 @@ import ListItemText from '@material-ui/core/ListItemText';
 // import InboxIcon from '@material-ui/icons/MoveToInbox';
 // import MailIcon from '@material-ui/icons/Mail';
 import {createMuiTheme, MuiThemeProvider, Divider} from '@material-ui/core';
+// const chat_service = require('../services/chat_service');
 
 const theme = createMuiTheme({
   overrides: {
@@ -100,10 +101,11 @@ class UsersLoginComponent extends Component {
     peer_chat_trigger(event) {
       console.log('which one clicked');      
       console.log(event.target.id);
-      console.log(event.target.key);
-      console.log(event.target.name);
+      let receiver_user = event.target.id;
+      localStorage.setItem("receiver_user", receiver_user);
+      console.log('localstorage receiver_user : --', localStorage.getItem('receiver_user'));
       
-      // window.location.replace('/peer_page');
+      window.location.replace('/peer_page');
 
     }
 
@@ -132,8 +134,8 @@ class UsersLoginComponent extends Component {
                   return (
                   // <ListItem button key={text}>
                       // <ListItem button id = {this.state.user_login_display[key]} onClick = {this.peer_chat_trigger} key = {this.state.user_login_display[key]}>
-                        <ListItem button onClick = {this.peer_chat_trigger} name = {this.state.user_login_display[key]} key = {this.state.user_login_display[key]}>
-                        <ListItemText primary={this.state.user_login_display[key]} />
+                        <ListItem key = {this.state.user_login_display[key]}>
+                        <button id = {this.state.user_login_display[key]} onClick = {this.peer_chat_trigger} name = {this.state.user_login_display[key]} key = {this.state.user_login_display[key]} > <ListItemText primary={this.state.user_login_display[key]} /></button>
                         {console.log('button values : ', this.state.user_login_display[key])}
                         
                       {/* <ListItemIcon>{index % 2 === 0 ? <InboxIcon /> : <MailIcon />}</ListItemIcon> */}

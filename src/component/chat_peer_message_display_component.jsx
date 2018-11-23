@@ -47,6 +47,7 @@ class ChatPeerMessageDisplayomponent extends Component {
     }
 
     render() {
+        console.log('localstorage receiver_user : --', localStorage.getItem('receiver_user'));
         return (
             // <ul>
             <div className = "display_chats">
