@@ -8,6 +8,14 @@
 import React, { Component } from "react";
 import chat_service from '../services/chat_service';
 
+
+
+function CheckUsers(props) {
+    return (
+        {}
+    )
+}
+
 /**
  * @description Class Component to render display option we want on page
  * @extends React Component to make it a component
@@ -49,6 +57,7 @@ class ChatPeerMessageDisplayomponent extends Component {
     render() {
         // console.log('localstorage receiver_user : --', localStorage.getItem('receiver_user'));
         let user_logged_in = localStorage.getItem('user_login');
+        let receiver_selected = localStorage.getItem('receiver_user');
         return (
             // <ul>
             <div className = "display_chats">
@@ -60,13 +69,23 @@ class ChatPeerMessageDisplayomponent extends Component {
                         <div id = "chat_show" key={key}>
                             <li>
                             <div id = "each_chat">
+
+                            {this.state.message_display[key].sender_email_id === user_logged_in ? (
+                                <CheckUsers />
+                            ):(
+
+                            )}
+
+
+
+                                {/* {user_logged_in === this.state.message_display[key].email_id ? ( */}
                                 {user_logged_in === this.state.message_display[key].email_id ? (
                                     <div id = "each-chat-right">
-                                        {this.state.message_display[key].email_id} : {this.state.message_display[key].message}
+                                        {this.state.message_display[key].sender_email_id} : {this.state.message_display[key].message}
                                     </div>
                                 ) : (
                                     <div id = "each-chat-left">
-                                        {this.state.message_display[key].email_id} : {this.state.message_display[key].message}
+                                        {this.state.message_display[key].receiver_email_id} : {this.state.message_display[key].message}
                                     </div>
                                 )}
                                 {/* <TextField id = "outlined-multiline-flexible" label = "Chats" multiline rowsMax = "10" variant = "outline" value = {this.state.message_display[key].message} ></TextField> */}

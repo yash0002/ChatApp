@@ -60,6 +60,9 @@ function chat_app_users_login(callback)
 function chat_app_peer_socket_on(callback)
 {
     socket_io.on('response_peer_message', function(response) {    
+        console.log('response on service on client');
+        console.log(response);
+        
         callback(response);
     });
 }
@@ -68,7 +71,7 @@ function chat_app_peer_socket_emit(message_sent) {
 
     let message = `${message_sent} on ${new Date().toDateString()} at ${new Date().toLocaleTimeString()}`;
     let sender_email = localStorage.getItem("user_login");
-    let receiver_email = localStorage.getItem("user_login");
+    let receiver_email = localStorage.getItem("receiver_user");
 
     let request_message = {
         sender_email_id : sender_email,
