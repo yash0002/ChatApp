@@ -21,7 +21,7 @@ import ListItem from '@material-ui/core/ListItem';
 import ListItemText from '@material-ui/core/ListItemText';
 // import InboxIcon from '@material-ui/icons/MoveToInbox';
 // import MailIcon from '@material-ui/icons/Mail';
-import {createMuiTheme, MuiThemeProvider, Divider} from '@material-ui/core';
+import { createMuiTheme, MuiThemeProvider, Divider } from '@material-ui/core';
 // const chat_service = require('../services/chat_service');
 // import Promise from 
 
@@ -67,99 +67,99 @@ const styles = theme => ({
  */
 class UsersLoginComponent extends Component {
 
-    /**
-     * @description setting value of any text field to some object element declared in constructor
-     * @param {Object.props} props 
-     * @constructor to set values to object element
-     */
-    constructor(props) {
-        super(props);
-        this.state = {
-            user_login_display: []
-        }
-        this.peer_chat_trigger = this.peer_chat_trigger.bind(this);
+  /**
+   * @description setting value of any text field to some object element declared in constructor
+   * @param {Object.props} props 
+   * @constructor to set values to object element
+   */
+  constructor(props) {
+    super(props);
+    this.state = {
+      user_login_display: []
     }
-    componentDidMount() {
-      
+    this.peer_chat_trigger = this.peer_chat_trigger.bind(this);
+  }
+  componentDidMount() {
+
     var self = this;
-      chat_service.chat_app_users_login(function (list) {
-        // console.log('list on jsx');
-        // console.log(list);        
-        
-        if (list !== null && list !== undefined) {
-          self.setState({
-              user_login_display: list
-          })
-        }
-        else {
-          self.setState({
-              user_login_display : []
-          })
-        }
-      })
-    }
+    chat_service.chat_app_users_login(function (list) {
+      // console.log('list on jsx');
+      // console.log(list);        
 
-    peer_chat_trigger(event) {
-
-      let result = function(event) {
-        return new Promise((resolve, reject) => {
-          
-          let already_login_user = localStorage.getItem('user_login');
-          if(event.target.id === already_login_user) {
-            alert('Same Users cannot Interact!!');
-          }
-          else {
-            if(event.target.id !== null && event.target.id !== undefined) {
-              let receiver_user = event.target.id;
-              localStorage.setItem("receiver_user", receiver_user);
-              resolve('success');
-            }
-            else {
-              reject('error');
-            }
-          }
+      if (list !== null && list !== undefined) {
+        self.setState({
+          user_login_display: list
         })
       }
-
-      result(event).then(nextlocation).then(()=> {
-        console.log('value :- ', localStorage.getItem('receiver_user'));        
-        console.log(' next page');
-      }).catch(err => {
-        console.log(err); 
-      })
-      
-      function nextlocation () {
-        window.location.replace('/peer_page');
+      else {
+        self.setState({
+          user_login_display: []
+        })
       }
+    })
+  }
 
-      // function(event, callback) {
-      //   let receiver_user = localStorage.setItem('',)
-      // }
+  peer_chat_trigger(event) {
 
-      // {
-      //   localStorage.setItem("receiver_user", receiver_user);
-      // console.log('localstorage receiver_user : --', localStorage.getItem('receiver_user'));
-      // }
+    let result = function (event) {
+      return new Promise((resolve, reject) => {
 
-      
-      // console.log('which one clicked');      
-      // console.log(event.target.id);
-      // let receiver_user = event.target.id;
-      // localStorage.setItem("receiver_user", receiver_user);
-      // console.log('localstorage receiver_user : --', localStorage.getItem('receiver_user'));
-      
-      // window.location.replace('/peer_page');
-
+        let already_login_user = localStorage.getItem('user_login');
+        if (event.target.id === already_login_user) {
+          alert('Same Users cannot Interact!!');
+        }
+        else {
+          if (event.target.id !== null && event.target.id !== undefined) {
+            let receiver_user = event.target.id;
+            localStorage.setItem("receiver_user", receiver_user);
+            resolve('success');
+          }
+          else {
+            reject('error');
+          }
+        }
+      })
     }
 
-    render() {
-      // console.log('state set value');
-      // console.log(this.state.user_login_display);  
-      
-        return (
-            <div styles = {styles.root}>
-            <CssBaseline />
-            {/* <AppBar position="fixed" styles = {styles.appBar}>
+    result(event).then(nextlocation).then(() => {
+      console.log('value :- ', localStorage.getItem('receiver_user'));
+      console.log(' next page');
+    }).catch(err => {
+      console.log(err);
+    })
+
+    function nextlocation() {
+      window.location.replace('/peer_page');
+    }
+
+    // function(event, callback) {
+    //   let receiver_user = localStorage.setItem('',)
+    // }
+
+    // {
+    //   localStorage.setItem("receiver_user", receiver_user);
+    // console.log('localstorage receiver_user : --', localStorage.getItem('receiver_user'));
+    // }
+
+
+    // console.log('which one clicked');      
+    // console.log(event.target.id);
+    // let receiver_user = event.target.id;
+    // localStorage.setItem("receiver_user", receiver_user);
+    // console.log('localstorage receiver_user : --', localStorage.getItem('receiver_user'));
+
+    // window.location.replace('/peer_page');
+
+  }
+
+  render() {
+    // console.log('state set value');
+    // console.log(this.state.user_login_display);  
+
+    return (
+      <div styles={styles.root}>
+        <CssBaseline />
+        {/* <AppBar position="fixed" styles = {styles.appBar}>
               <Toolbar>
                 <Typography variant="h6" color="inherit" noWrap>
                   Clipped drawer
@@ -167,31 +167,31 @@ class UsersLoginComponent extends Component {
               </Toolbar>
             </AppBar> */}
 
-            <MuiThemeProvider theme = {theme} >
-            <Drawer variant="permanent">
-              <div styles = {styles.toolbar}/>
-              <List>
-                <ListItem>Users</ListItem>
-                <Divider />
-                {Object.keys(this.state.user_login_display).map(key => {
-                  return (
+        <MuiThemeProvider theme={theme} >
+          <Drawer variant="permanent">
+            <div styles={styles.toolbar} />
+            <List>
+              <ListItem>Users</ListItem>
+              <Divider />
+              {Object.keys(this.state.user_login_display).map(key => {
+                return (
                   // <ListItem button key={text}>
-                      // <ListItem button id = {this.state.user_login_display[key]} onClick = {this.peer_chat_trigger} key = {this.state.user_login_display[key]}>
-                        <ListItem key = {this.state.user_login_display[key]}>
-                        <button id = {this.state.user_login_display[key]} onClick = {this.peer_chat_trigger} name = {this.state.user_login_display[key]} key = {this.state.user_login_display[key]} > <ListItemText primary={this.state.user_login_display[key]} /></button>
-                        {/* {console.log('button values : ', this.state.user_login_display[key])} */}
-                        
-                      {/* <ListItemIcon>{index % 2 === 0 ? <InboxIcon /> : <MailIcon />}</ListItemIcon> */}
-                      {/* <ListItemText primary={text} /> */}
-                      </ListItem>
-                  )
-                })}
-              </List>
-            </Drawer>
-            </MuiThemeProvider>
-          </div>
-        );
-    }
+                  // <ListItem button id = {this.state.user_login_display[key]} onClick = {this.peer_chat_trigger} key = {this.state.user_login_display[key]}>
+                  <ListItem key={this.state.user_login_display[key]}>
+                    <button id={this.state.user_login_display[key]} onClick={this.peer_chat_trigger} name={this.state.user_login_display[key]} key={this.state.user_login_display[key]} > <ListItemText primary={this.state.user_login_display[key]} /></button>
+                    {/* {console.log('button values : ', this.state.user_login_display[key])} */}
+
+                    {/* <ListItemIcon>{index % 2 === 0 ? <InboxIcon /> : <MailIcon />}</ListItemIcon> */}
+                    {/* <ListItemText primary={text} /> */}
+                  </ListItem>
+                )
+              })}
+            </List>
+          </Drawer>
+        </MuiThemeProvider>
+      </div>
+    );
+  }
 }
 
 /**

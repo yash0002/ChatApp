@@ -48,35 +48,35 @@ class ChatAppMessageDisplayComponent extends Component {
 
     render() {
         let user_login = localStorage.getItem('user_login');
-        
+
         return (
             // <ul>
-            <div className = "display_chats">
+            <div className="display_chats">
                 {Object.keys(this.state.message_display).map(key => {
                     // console.log("key:.....", key);
                     // console.log(this.state.message_display[key].message);
                     // console.log(this.state.message_display[key].email_id);
                     return (
-                        <div id = "chat_show" key={key}>
-                            <li>
-                            <div id = "each_chat">
+                        <div id="chat_show" key={key}>
+                            {/* <li> */}
+                            <div id="each_chat">
                                 {/* <TextField id = "outlined-multiline-flexible" label = "Chats" multiline rowsMax = "10" variant = "outline" value = {this.state.message_display[key].message} ></TextField> */}
                                 {user_login === this.state.message_display[key].email_id ? (
-                                    <div id = "each-chat-right">
+                                    <div id="each-chat-right">
                                         {this.state.message_display[key].email_id} : {this.state.message_display[key].message}
                                     </div>
                                 ) : (
-                                    <div id = "each-chat-left">
-                                        {this.state.message_display[key].email_id} : {this.state.message_display[key].message}
-                                    </div>
-                                )}
+                                        <div id="each-chat-left">
+                                            {this.state.message_display[key].email_id} : {this.state.message_display[key].message}
+                                        </div>
+                                    )}
                                 {/* {this.state.message_display[key].email_id} : {this.state.message_display[key].message}<nav></nav> */}
                                 {/* {this.state.message_display[key].message} */}
                             </div>
                             {/* <div>
                                 {this.state.message_display[key].email_id}
                             </div> */}
-                            </li>
+                            {/* </li> */}
                         </div>
                     )
                 })}
