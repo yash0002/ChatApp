@@ -53,15 +53,29 @@ function chat_app_users_login(callback)
     });
 }
 
-function peer_chat_service(peer_receiver, message_sent) {
-
-    let message = `${message_sent} on ${new Date().toDateString()} at ${new Date().toLocaleTimeString()}`;
-    let user_login = localStorage.getItem("user_login");
-    let request_message = {
-        email_id : user_login,
-        message_sent : message
-    };
-    socket_io.emit('chat_message', request_message);
+/**
+ * @description Method to receive data from socket from server side for peers
+ * @param {callback} callback 
+ */
+function chat_app_peer_socket_on(callback)
+{
+    socket_io.on('response_peer_message', function(response) {    
+        callback(response);
+    });
 }
 
-module.exports = {chat_app_socket_emit, chat_app_socket_on, chat_app_users_login, peer_chat_service};
+function chat_app_peer_socket_emit(message_sent) {
+
+    let message = `${message_sent} on ${new Date().toDateString()} at ${new Date().toLocaleTimeString()}`;
+    let sender_email = localStorage.getItem("user_login");
+    let receiver_email = localStorage.getItem("user_login");
+    
+    let request_message = {
+        sender_email_id : user_login,
+        receiver_email_id : receiver_email,
+        message_sent : message
+    };
+    socket_io.emit('chat_peer_message', request_message);
+}
+
+module.exports = {chat_app_socket_emit, chat_app_socket_on, chat_app_users_login, chat_app_peer_socket_on , chat_app_peer_socket_emit};

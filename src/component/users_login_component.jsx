@@ -23,6 +23,7 @@ import ListItemText from '@material-ui/core/ListItemText';
 // import MailIcon from '@material-ui/icons/Mail';
 import {createMuiTheme, MuiThemeProvider, Divider} from '@material-ui/core';
 // const chat_service = require('../services/chat_service');
+// import Promise from 
 
 const theme = createMuiTheme({
   overrides: {
@@ -99,13 +100,49 @@ class UsersLoginComponent extends Component {
     }
 
     peer_chat_trigger(event) {
-      console.log('which one clicked');      
-      console.log(event.target.id);
-      let receiver_user = event.target.id;
-      localStorage.setItem("receiver_user", receiver_user);
-      console.log('localstorage receiver_user : --', localStorage.getItem('receiver_user'));
+
+      let result = function(event) {
+        return new Promise((resolve, reject) => {
+        
+          if(event.target.id !== null && event.target.id !== undefined) {
+            let receiver_user = event.target.id;
+            localStorage.setItem("receiver_user", receiver_user);
+            resolve('success');
+          }
+          else {
+            reject('error');
+          }
+        })
+      }
+
+      result(event).then(nextlocation).then(()=> {
+        console.log('value :- ', localStorage.getItem('receiver_user'));        
+        console.log(' next page');
+      }).catch(err => {
+        console.log(err); 
+      })
       
-      window.location.replace('/peer_page');
+      function nextlocation () {
+        window.location.replace('/peer_page');
+      }
+
+      // function(event, callback) {
+      //   let receiver_user = localStorage.setItem('',)
+      // }
+
+      // {
+      //   localStorage.setItem("receiver_user", receiver_user);
+      // console.log('localstorage receiver_user : --', localStorage.getItem('receiver_user'));
+      // }
+
+      
+      // console.log('which one clicked');      
+      // console.log(event.target.id);
+      // let receiver_user = event.target.id;
+      // localStorage.setItem("receiver_user", receiver_user);
+      // console.log('localstorage receiver_user : --', localStorage.getItem('receiver_user'));
+      
+      // window.location.replace('/peer_page');
 
     }
 

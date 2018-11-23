@@ -29,7 +29,7 @@ class ChatPeerMessageDisplayomponent extends Component {
     componentDidMount() {
 
         var self = this;
-        chat_service.chat_app_socket_on(function (list) {
+        chat_service.peer_chat_service(function (list) {
 
             if (list !== null && list !== undefined) {
                 self.setState({
@@ -76,6 +76,6 @@ class ChatPeerMessageDisplayomponent extends Component {
     }
 }
 /**
- * @exports Chat_App_Message_Display_Component Class as Component in react tech
+ * @exports ChatPeerMessageDisplayomponent Class as Component in react tech
  */
-export default ChatPeerMessageDisplayComponent;
+export default ChatPeerMessageDisplayomponent;

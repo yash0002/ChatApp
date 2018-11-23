@@ -6,7 +6,7 @@
  * @version 2.0
  */
 import React, { Component } from 'react';
-import ChatAppMessageDisplayComponent from '../component/chat_app_message_display_component';
+import ChatPeerMessageDisplayomponent from '../component/chat_peer_message_display_component';
 import ChatAppMessageTypeComponent from '../component/chat_page_message_type_component';
 import LogoutTopBarComponent from '../component/logout_topbar_component';
 import UsersLoginComponent from '../component/users_login_component';
@@ -24,7 +24,7 @@ class ChatAppPeerPageScreen extends Component
                 <LogoutTopBarComponent/>
                 <UsersLoginComponent/>
                 {/* <img src={require('../images/messaging_logo.jpg')} alt="User Registration" id = "img-top-chat-page" /><br/><br/> */}
-                <ChatAppMessageDisplayComponent/>
+                <ChatPeerMessageDisplayomponent/>
                 <ChatAppMessageTypeComponent/>
                 
             </div>
