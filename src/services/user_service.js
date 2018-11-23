@@ -130,7 +130,7 @@ function logout_service()
  */
 function forgot_service(email)
 {
-    axios.post('/forgot', {
+    axios.post('/forgot_password', {
         user_forgot_email_id : email,
     })
     .then(response => {
@@ -147,7 +147,7 @@ function forgot_service(email)
             return null;
         }
     }).catch(error => {
-        console.log('Logout error up on server');
+        console.log('forgot password error up on server');
         alert('error occured, try later');
         console.log(error);
         return null;
@@ -159,24 +159,24 @@ function forgot_service(email)
  */
 function reset_password_service(email)
 {
-    axios.post('/forgot', {
+    axios.post('/reset_password', {
         user_forgot_email_id : email,
     })
     .then(response => {
         console.log(response);
         if(response.data) {
-            console.log('Successful Link Sent');
+            console.log('Successful Password Reset');
             window.location.replace("/");
-            alert('Check Account , Email Sent !');
+            alert('Password Reset Successful !');
             // return response;
         }
         else {
-            console.log('logout Failed');
-            alert(' Forgot Password Process Failed ');
+            console.log('password reset Failed');
+            alert(' Password Reset Process Failed ');
             return null;
         }
     }).catch(error => {
-        console.log('Logout error up on server');
+        console.log('reset error up on server');
         alert('error occured, try later');
         console.log(error);
         return null;
