@@ -72,7 +72,7 @@ class LogoutTopBarComponent extends Component
        
          return (
             <div display = "inline-block">
-                <AppBar position = "static">
+                <AppBar position = "fixed">
                     <Toolbar>
                         <IconButton aria-label='Menu'>
                             <MenuIcon />

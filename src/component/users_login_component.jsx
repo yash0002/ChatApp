@@ -178,7 +178,7 @@ class UsersLoginComponent extends Component {
                   // <ListItem button key={text}>
                   // <ListItem button id = {this.state.user_login_display[key]} onClick = {this.peer_chat_trigger} key = {this.state.user_login_display[key]}>
                   <ListItem key={this.state.user_login_display[key]}>
-                    <button style = {{marginLeft:"-21px", padding:"1px", }} id={this.state.user_login_display[key]} onClick={this.peer_chat_trigger} name={this.state.user_login_display[key]} key={this.state.user_login_display[key]} > <ListItemText primary={this.state.user_login_display[key]} /></button>
+                    <button style = {{marginLeft:"-21px", padding:"1px", border:"none", backgroundColor:"none", width:"100%", display:"block"}} id={this.state.user_login_display[key]} onClick={this.peer_chat_trigger} name={this.state.user_login_display[key]} key={this.state.user_login_display[key]} > <ListItemText primary={this.state.user_login_display[key]} /></button>
                     {/* {console.log('button values : ', this.state.user_login_display[key])} */}
 
                     {/* <ListItemIcon>{index % 2 === 0 ? <InboxIcon /> : <MailIcon />}</ListItemIcon> */}

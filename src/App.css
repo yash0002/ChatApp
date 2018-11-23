@@ -40,7 +40,9 @@
   overflow-x: scroll;
   border: 2px solid #282c34;
   margin-left: 230px;
+  margin-top: 65px;
   align-self: center;
+  /* position: fixed; */
 }
 
 #chat_show_left {
@@ -50,10 +52,6 @@
   list-style-type: none;
   border: #282c34;
   display: flex;
-}
-
-#chat_show_left {
-  float: right;
 }
 
 #each-chat-left {
