@@ -29,7 +29,7 @@ class ChatPeerMessageDisplayomponent extends Component {
     componentDidMount() {
 
         var self = this;
-        chat_service.peer_chat_service(function (list) {
+        chat_service.chat_app_peer_socket_on(function (list) {
 
             if (list !== null && list !== undefined) {
                 self.setState({
