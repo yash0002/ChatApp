@@ -69,9 +69,9 @@ function chat_app_peer_socket_emit(message_sent) {
     let message = `${message_sent} on ${new Date().toDateString()} at ${new Date().toLocaleTimeString()}`;
     let sender_email = localStorage.getItem("user_login");
     let receiver_email = localStorage.getItem("user_login");
-    
+
     let request_message = {
-        sender_email_id : user_login,
+        sender_email_id : sender_email,
         receiver_email_id : receiver_email,
         message_sent : message
     };
