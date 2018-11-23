@@ -28,9 +28,6 @@ class ForgotPasswordComponent1 extends React.Component
         this.state = {
             email_id : "",
         };
-        // this.email_id_setting_variable = this.email_id_setting_variable.bind(this);
-        // this.pass1_setting_variable = this.pass1_setting_variable.bind(this);
-        // this.pass_2_setting_variable = this.pass_2_setting_variable.bind(this);
         this.register = this.register.bind(this);
         this.setAll = this.setAll.bind(this);
     }
@@ -44,6 +41,7 @@ class ForgotPasswordComponent1 extends React.Component
         this.setState({
             [event.target.name] : event.target.value
         });
+        console.log(typeof this.state.email_id);
     }
     
     /**
@@ -56,7 +54,7 @@ class ForgotPasswordComponent1 extends React.Component
         event.preventDefault();
          if(/^[a-z](\.?[a-z0-9]){2,}@g(oogle)?mail\.com$/g.test(this.state.email_id))
          {
-             
+            user_service.forgot_service(this.state.email_id);
          }
          else {
             alert('Email-id not valid');
