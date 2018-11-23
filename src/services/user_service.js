@@ -30,7 +30,7 @@ function login_service(email_id, password)
                 const person_log_in = {
                     name: email_id,
                 }
-                localStorage.setItem('user_login', JSON.stringify(person));
+                localStorage.setItem('user_login', JSON.stringify(person_log_in));
                 or
                 window.localStorage...
             * another way to save item is sessionstorage - which gets clear automatically when browser is closed
