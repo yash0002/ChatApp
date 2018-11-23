@@ -47,6 +47,9 @@ class ChatAppMessageDisplayComponent extends Component {
     }
 
     render() {
+        let u = localStorage.getItem('user_login');
+        console.log('user log in is : ',u);
+        
         return (
             // <ul>
             <div className = "display_chats">
@@ -59,6 +62,7 @@ class ChatAppMessageDisplayComponent extends Component {
                             <li>
                             <div id = "each_chat">
                                 {/* <TextField id = "outlined-multiline-flexible" label = "Chats" multiline rowsMax = "10" variant = "outline" value = {this.state.message_display[key].message} ></TextField> */}
+                                {if}
                                 {this.state.message_display[key].email_id} : {this.state.message_display[key].message}<nav></nav>
                                 {/* {this.state.message_display[key].message} */}
                             </div>
@@ -67,6 +71,20 @@ class ChatAppMessageDisplayComponent extends Component {
                             </div> */}
                             </li>
                         </div>
+
+
+                                                            return (
+                                                                <div>
+                                                                {isLoggedIn ? (
+                                                                    <LogoutButton onClick={this.handleLogoutClick} />
+                                                                ) : (
+                                                                    <LoginButton onClick={this.handleLoginClick} />
+                                                                )}
+                                                                </div>
+                                                            );
+
+
+
                     )
                 })}
             </div>

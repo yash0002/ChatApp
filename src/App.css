@@ -42,13 +42,18 @@
   align-self: center;
 }
 
-#chat_show {
-  text-align: left;
+#chat_show_left {
+  float: left;
+  /* text-align: left; */
   /* margin-left: 350px;
   margin-right: 200px; */
   list-style-type: none;
   border: #282c34;
   display: flex;
+}
+
+#chat_show_left {
+  float: right;
 }
 
 #side-bar {
