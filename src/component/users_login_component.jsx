@@ -101,7 +101,9 @@ class UsersLoginComponent extends Component {
       console.log('which one clicked');      
       console.log(event.target.id);
       console.log(event.target.key);
-      window.location.replace('/peer_page');
+      console.log(event.target.name);
+      
+      // window.location.replace('/peer_page');
 
     }
 
@@ -129,7 +131,8 @@ class UsersLoginComponent extends Component {
                 {Object.keys(this.state.user_login_display).map(key => {
                   return (
                   // <ListItem button key={text}>
-                      <ListItem button id = {this.state.user_login_display[key]} onClick = {this.peer_chat_trigger} key = {this.state.user_login_display[key]}>
+                      // <ListItem button id = {this.state.user_login_display[key]} onClick = {this.peer_chat_trigger} key = {this.state.user_login_display[key]}>
+                        <ListItem button onClick = {this.peer_chat_trigger} name = {this.state.user_login_display[key]} key = {this.state.user_login_display[key]}>
                         <ListItemText primary={this.state.user_login_display[key]} />
                         {console.log('button values : ', this.state.user_login_display[key])}
                         

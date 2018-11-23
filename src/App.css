@@ -43,8 +43,7 @@
 }
 
 #chat_show_left {
-  float: left;
-  /* text-align: left; */
+  text-align: left;
   /* margin-left: 350px;
   margin-right: 200px; */
   list-style-type: none;
@@ -54,6 +53,20 @@
 
 #chat_show_left {
   float: right;
+}
+
+#each-chat-left {
+  float: left;
+  background-color: lightgreen;
+  padding: 5px;
+  border-radius: 30px;
+}
+
+#each-chat-right {
+  float: right;
+  background-color: #61dafb;
+  padding: 5px;
+  border-radius: 30px;
 }
 
 #side-bar {
