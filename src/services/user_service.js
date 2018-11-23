@@ -125,4 +125,62 @@ function logout_service()
     })
 }
 
-module.exports = {register_service, login_service, logout_service};
+/**
+ * @description Method to send request for reseting password
+ */
+function forgot_service(email)
+{
+    axios.post('/forgot', {
+        user_forgot_email_id : email,
+    })
+    .then(response => {
+        console.log(response);
+        if(response.data) {
+            console.log('Successful Link Sent');
+            window.location.replace("/");
+            alert('Check Account , Email Sent !');
+            // return response;
+        }
+        else {
+            console.log('logout Failed');
+            alert(' Forgot Password Process Failed ');
+            return null;
+        }
+    }).catch(error => {
+        console.log('Logout error up on server');
+        alert('error occured, try later');
+        console.log(error);
+        return null;
+    })
+}
+
+/**
+ * @description Method to send request for reseting password
+ */
+function reset_password_service(email)
+{
+    axios.post('/forgot', {
+        user_forgot_email_id : email,
+    })
+    .then(response => {
+        console.log(response);
+        if(response.data) {
+            console.log('Successful Link Sent');
+            window.location.replace("/");
+            alert('Check Account , Email Sent !');
+            // return response;
+        }
+        else {
+            console.log('logout Failed');
+            alert(' Forgot Password Process Failed ');
+            return null;
+        }
+    }).catch(error => {
+        console.log('Logout error up on server');
+        alert('error occured, try later');
+        console.log(error);
+        return null;
+    })
+}
+
+module.exports = {register_service, login_service, logout_service, forgot_service, reset_password_service};

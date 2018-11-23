@@ -56,19 +56,7 @@ class ForgotPasswordComponent1 extends React.Component
         event.preventDefault();
          if(/^[a-z](\.?[a-z0-9]){2,}@g(oogle)?mail\.com$/g.test(this.state.email_id))
          {
-             if(/^[a-zA-Z][\w!]{5,9}$/g.test(this.state.password))
-             {
-                if(this.state.pass_1 === this.state.pass_2)
-                {
-                    user_service.register_service(this.state.email_id, this.state.pass_1);
-                }
-                else {
-                    alert("Password doen't match");
-                }
-             }
-             else {
-                 alert('Password Invalid');
-             }
+             
          }
          else {
             alert('Email-id not valid');
