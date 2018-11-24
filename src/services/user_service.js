@@ -13,16 +13,15 @@ const axios = require('axios');
  * @param {String} email_id 
  * @param {String} password 
  */
-function login_service(email_id, password)
-{
-    console.log('Service-client-link-login');    
+function login_service(email_id, password) {
+    console.log('Service-client-link-login');
     axios.post('/login', {
-        email : email_id,
-        passw : password
+        email: email_id,
+        passw: password
     })
     .then(response => {
         console.log(response);
-        if(response.data) {
+        if (response.data) {
             console.log('successful login');
             alert('Successful Login');
             /*
@@ -65,122 +64,118 @@ function login_service(email_id, password)
  * @param {String} email_id 
  * @param {String} password 
  */
-function register_service(email_id, password)
-{
-    console.log('Service-client-link-register');
+function register_service(email_id, password) {
+
     axios.post('/register', {
-        email : email_id,
-        passw : password
+        email: email_id,
+        passw: password
     })
-    .then(response => {
-        console.log(response);
-        if(response.data) {
-            console.log('successful register client services');
-            alert('successful register client services');
-            //return response.redirectTo('/login');
-            window.location.replace("/");
-            // this.setState({
-            //     redirectTo : 'login'
-            // })
-        }
-        else {
-            console.log('Registration Failed');
-            alert('Registration Failed');
-        }
-    }).catch(error => {
-        alert('error up on server');
-        console.log('error occured, try later');
-        console.log(error);
-    })
+        .then(response => {
+            console.log(response);
+            if (response.data) {
+                console.log('successful register client services');
+                alert('successful register client services');
+                //return response.redirectTo('/login');
+                window.location.replace("/");
+                // this.setState({
+                //     redirectTo : 'login'
+                // })
+            }
+            else {
+                console.log('Registration Failed');
+                alert('Registration Failed');
+            }
+        }).catch(error => {
+            alert('error up on server');
+            console.log('error occured, try later');
+            console.log(error);
+        })
 }
 
 /**
  * @description Method to send request for logout from client side to server side
  */
-function logout_service()
-{
-    console.log('Service-client-link-logout');
+function logout_service() {
+
     let log_user_email_id = localStorage.getItem("user_login");
     axios.post('/logout', {
-        log_user_email_id : log_user_email_id,
+        log_user_email_id: log_user_email_id,
     })
-    .then(response => {
-        console.log(response);
-        if(response.data) {
-            console.log('Successful Logout');
-            localStorage.clear();
-            window.location.replace("/");
-            // return response;
-        }
-        else {
-            console.log('logout Failed');
-            alert('Logout Failed ');
+        .then(response => {
+            console.log(response);
+            if (response.data) {
+                console.log('Successful Logout');
+                localStorage.clear();
+                window.location.replace("/");
+                // return response;
+            }
+            else {
+                console.log('logout Failed');
+                alert('Logout Failed ');
+                return null;
+            }
+        }).catch(error => {
+            console.log('Logout error up on server');
+            alert('error occured, try later');
+            console.log(error);
             return null;
-        }
-    }).catch(error => {
-        console.log('Logout error up on server');
-        alert('error occured, try later');
-        console.log(error);
-        return null;
-    })
+        })
 }
 
 /**
  * @description Method to send request for reseting password
  */
-function forgot_service(email)
-{
+function forgot_service(email) {
     axios.post('/forgot_password', {
-        user_forgot_email_id : email,
+        user_forgot_email_id: email,
     })
-    .then(response => {
-        console.log(response);
-        if(response.data) {
-            console.log('Successful Link Sent');
-            window.location.replace("/");
-            alert('Check Account , Email Sent !');
-            // return response;
-        }
-        else {
-            console.log('logout Failed');
-            alert(' Forgot Password Process Failed ');
+        .then(response => {
+            console.log(response);
+            if (response.data) {
+                console.log('Successful Link Sent');
+                window.location.replace("/");
+                alert('Check Account , Email Sent !');
+                // return response;
+            }
+            else {
+                console.log('logout Failed');
+                alert(' Forgot Password Process Failed ');
+                return null;
+            }
+        }).catch(error => {
+            console.log('forgot password error up on server');
+            alert('error occured, try later');
+            console.log(error);
             return null;
-        }
-    }).catch(error => {
-        console.log('forgot password error up on server');
-        alert('error occured, try later');
-        console.log(error);
-        return null;
-    })
+        })
 }
 
 /**
  * @description Method to send request for reseting password
  */
-function reset_password_service(email)
-{
+function reset_password_service(email) {
     axios.post('/reset_password', {
-        user_forgot_email_id : email,
+        user_forgot_email_id: email,
     })
-    .then(response => {
-        console.log(response);
-        if(response.data) {
-            console.log('Successful Password Reset');
-            window.location.replace("/");
-            alert('Password Reset Successful !');
-            // return response;
-        }
-        else {
-            console.log('password reset Failed');
-            alert(' Password Reset Process Failed ');
+        .then(response => {
+            console.log(response);
+            if (response.data) {
+                console.log('Successful Password Reset');
+                window.location.replace("/");
+                alert('Password Reset Successful !');
+                // return response;
+            }
+            else {
+                console.log('password reset Failed');
+                alert(' Password Reset Process Failed ');
+                return null;
+            }
+        }).catch(error => {
+            console.log('reset error up on server');
+            alert('error occured, try later');
+            console.log(error);
             return null;
-        }
-    }).catch(error => {
-        console.log('reset error up on server');
-        alert('error occured, try later');
-        console.log(error);
-        return null;
-    })
+        })
 }
 
-module.exports = {register_service, login_service, logout_service, forgot_service, reset_password_service};
+module.exports = { register_service, login_service, logout_service, forgot_service, reset_password_service };

@@ -39,7 +39,7 @@ class ChatPeerMessageTypeComponent extends Component
     message_send_function(event)
     {
         event.preventDefault();
-        if(this.state.message.length != null)
+        if(this.state.message !== "")
         {
             chat_service.chat_app_peer_socket_emit(this.state.message);
             // if(/^[a-zA-Z0-9]{5,30}$/g.test(this.state.message))
