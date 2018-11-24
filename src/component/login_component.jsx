@@ -5,17 +5,27 @@
  * @version 1.5.
  * @module axios, react, material-ui
  */
-import React,{Component} from 'react';
+import React, { Component } from 'react';
 import { Button, TextField, } from '@material-ui/core';
 import user_service from '../services/user_service';
+
+// function DropDown(props) {
+//     return (
+//         <div>
+//             <li style = {{textDecoration:"none"}}>
+//                 <span>Min Length - 5</span>
+//                 <span>Should be gmail id</span>
+//             </li>
+//         </div>
+//     )
+// }
 
 /**
  * @description Class Component to render display option we want on page
  * @extends React Component to make it a component
  * @function render to display on webpage & to write html code
  */
-class LoginComponent extends Component
-{
+class LoginComponent extends Component {
 
     /**
      * @description setting value of any text field to some object element declared in constructor
@@ -25,9 +35,9 @@ class LoginComponent extends Component
     constructor(props) {
         super(props);
         this.state = {
-            hasError : false,
-            email_id : "",
-            password : ""
+            hasError: false,
+            email_id: "",
+            password: ""
         };
         this.setting_emailid = this.setting_emailid.bind(this);
         this.setting_password = this.setting_password.bind(this);
@@ -39,11 +49,10 @@ class LoginComponent extends Component
      * @description method to set value to class state variable
      * @param {Event} evt 
      */
-    setting_emailid(evt)
-    {
+    setting_emailid(evt) {
         this.setState(
             {
-                email_id : evt.target.value
+                email_id: evt.target.value
             }
         );
     }
@@ -52,11 +61,10 @@ class LoginComponent extends Component
      * @description method to set value to class state variable
      * @param {Event} evt 
      */
-    setting_password(event)
-    {
+    setting_password(event) {
         this.setState(
             {
-                password : event.target.value
+                password: event.target.value
             }
         );
     }
@@ -68,14 +76,13 @@ class LoginComponent extends Component
      */
     componentDidCatch(error, info) {
         this.setState({
-            hasError : true
+            hasError: true
         })
         //Log error to error reporting service
         //logErrorToMyService(error, info);
     }
 
-    key_press(event)
-    {
+    key_press(event) {
 
     }
     /**
@@ -83,51 +90,59 @@ class LoginComponent extends Component
      * @param {Event} event 
      * @function login_process to go for login procedure when send button clicked & asked for response from server via request
      */
-    login_process()
-    {
+    login_process() {
         // event.preventDefault();
-        if(/^[a-z](\.?[a-z0-9]){3,}@g(oogle)?mail\.com$/g.test(this.state.email_id))
-        {
-            if(this.state.password.length >= 5)
-            {
-                if(/^[a-zA-Z0-9][\w!]{5,9}$/g.test(this.state.password))
-                {
-                    console.log('email - id : '+this.state.email_id);
-                    console.log('password : '+this.state.password);
-                    user_service.login_service(this.state.email_id, this.state.password);                   
+        if (this.state.email_id !== "") {
+            if (/^[a-z](\.?[a-z0-9]){3,}@g(oogle)?mail\.com$/g.test(this.state.email_id)) {
+                if (this.state.password !== "") {
+                    if (this.state.password.length >= 5) {
+                        if (/^[a-zA-Z0-9][\w!]{5,9}$/g.test(this.state.password)) {
+                            console.log('email - id : ' + this.state.email_id);
+                            console.log('password : ' + this.state.password);
+                            user_service.login_service(this.state.email_id, this.state.password);
+                        }
+                        else {
+                            alert('Password Invalid');
+                        }
+                    }
+                    else {
+                        alert("Password Invalid");
+                    }
                 }
                 else {
-                    alert('Password Invalid');
+                    alert("Password Empty");
                 }
             }
             else {
-                alert("Password Invalid");
+                alert("Email_id Invalid");
             }
         }
         else {
-            alert("Email_id Invalid");
+            alert("Email Empty");
         }
+
     }
 
     render() {
-       
-         return (
-            <div display = "inline-block" >
-                <br/><br/>
 
-                <TextField label="Email_id" value = {this.state.email_id} onChange={this.setting_emailid} ></TextField>
-                <br/><br/>
+        return (
+            <div display="inline-block" >
+                <br /><br />
 
-                <TextField label="Password" type = "password" value = {this.state.password} onChange={this.setting_password} onKeyPress ={ (event) => {
+                <TextField label="Email_id" value={this.state.email_id} onChange={this.setting_emailid} ></TextField>
+                <br /><br />
+
+                <TextField label="Password" type="password" value={this.state.password} onChange={this.setting_password} onKeyPress={(event) => {
                     if (event.key === 'Enter') {
                         this.login_process()
-                    } } }>
+                    }
+                }}>
                 </TextField>
-                <br/><br/>
-                <a id = "links-display" href = "/register" >New User</a> &nbsp;&nbsp;&nbsp;
-                <Button onClick = {this.login_process} >Login</Button><br/>
-                <a id = "links-display" href = "/forgotPassword1" >Forgot Password</a> &nbsp;&nbsp;&nbsp;
-            </div>   
+                <br /><br />
+                <a id="links-display" href="/register" >New User</a> &nbsp;&nbsp;&nbsp;
+                <Button onClick={this.login_process} >Login</Button><br />
+                <a id="links-display" href="/forgotPassword1" >Forgot Password</a> &nbsp;&nbsp;&nbsp;
+            </div>
         );//onKeyPress = {this.login_process_key_press}
     }
 }

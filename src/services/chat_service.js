@@ -14,12 +14,14 @@ const socket_io = io.connect('http://localhost:3001');
  */
 function chat_app_socket_emit(message_sent)
 {
-    let message = `${message_sent} on ${new Date().toDateString()} at ${new Date().toLocaleTimeString()}`;
+    let message = message_sent;
     let user_login = localStorage.getItem("user_login");
     let request_message = {
         email_id : user_login,
         message_sent : message
     };
+    console.log('request for group chat object -- client');
+    console.log(request_message);
     socket_io.emit('chat_message', request_message);
 }
 
@@ -32,6 +34,19 @@ function chat_app_socket_on(callback)
     socket_io.on('response_message', function(response) {    
         callback(response);
     });
+
+        // try {
+    //     socket_io.on('response_message', function(response) {    
+    //        if(response !== null && response !== undefined) throw 'error'
+    //        {
+    //         callback(response);
+    //        }
+    //     });
+    // }
+    // catch (err) {
+    //     callback(err);
+    // }
+
 }
 
 /**
@@ -69,7 +84,7 @@ function chat_app_peer_socket_on(callback)
 
 function chat_app_peer_socket_emit(message_sent) {
 
-    let message = `${message_sent} on ${new Date().toDateString()} at ${new Date().toLocaleTimeString()}`;
+    let message = message_sent;
     let sender_email = localStorage.getItem("user_login");
     let receiver_email = localStorage.getItem("receiver_user");
 
