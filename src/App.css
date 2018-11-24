@@ -37,7 +37,7 @@
   width: 870px;
   height: 390px;
   overflow-y: scroll;
-  overflow-x: scroll;
+  /* overflow-x: scroll; */
   border: 2px solid #282c34;
   margin-left: 230px;
   margin-top: 65px;
@@ -71,14 +71,19 @@
 #side-bar {
   top : 100px;
   overflow-x: scroll;
+  border: none;
 }
 
 #logout-button-style {
-  margin-left: 750px;
+  margin-left: 900px;
+  color: white;
 }
 
 #groupchat-button-style {
   margin-left: 10px;
+  width: 500px;
+  display: block;
+  color: white;
 }
 
 /*-------Already Defined----------*/

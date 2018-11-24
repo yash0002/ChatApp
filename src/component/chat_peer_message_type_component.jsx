@@ -59,7 +59,7 @@ class ChatPeerMessageTypeComponent extends Component
          return (
             <div display = "inline-block" >
                 <Button onClick={this.message_send_function} ><img src = {require('../images/message_send_arrow.jpg')} alt="User Registration" id = "chat-send-image" /></Button>
-                <TextField id="standard-multiline-flexible" rowsMax="3" label="Type Message" multiline margin="normal" inputProps={{ maxLength: 30 }} type = "TextField"  value = {this.state.message} onChange={this.setting_message_value_function} ></TextField>
+                <TextField style = {{width:"500px"}} id="standard-multiline-flexible" rowsMax="3" label="Type Message" multiline margin="normal" inputProps={{ maxLength: 30 }} type = "TextField"  value = {this.state.message} onChange={this.setting_message_value_function} variant = "outlined"></TextField>
                 {/* onKeyPress = {this.setting_message_value_function} multiLine={true} */}
             </div>   
         );

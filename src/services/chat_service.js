@@ -56,6 +56,7 @@ function chat_app_socket_on(callback)
 function chat_app_users_login(callback)
 {
     socket_io.on('response_message', function(response) {
+        // const data = response.data;
         let users_set = new Set(), users = [];
         
         response.forEach((y) => {

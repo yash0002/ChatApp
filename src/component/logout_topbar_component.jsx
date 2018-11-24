@@ -6,9 +6,10 @@
  * @module axios, react, material-ui
  */
 import React,{Component} from 'react';
-import { Button, AppBar, Toolbar, IconButton, Typography } from '@material-ui/core';
+// import { Button, AppBar, Toolbar, IconButton, Typography } from '@material-ui/core';
+import { Button, AppBar, Toolbar} from '@material-ui/core';
 import user_service from '../services/user_service';
-import MenuIcon from '@material-ui/icons/Menu';
+// import MenuIcon from '@material-ui/icons/Menu';
 /**
  * @description Class Component to render display option we want on page
  * @extends React Component to make it a component
@@ -74,10 +75,10 @@ class LogoutTopBarComponent extends Component
             <div display = "inline-block">
                 <AppBar position = "fixed">
                     <Toolbar>
-                        <IconButton aria-label='Menu'>
+                        {/* <IconButton aria-label='Menu'>
                             <MenuIcon />
-                        </IconButton>
-                        <Typography variant='h6' color='inherit'>Home</Typography>
+                        </IconButton> */}
+                        {/* <Typography variant='h6' color='inherit'>Home</Typography> */}
                         <Button id = "groupchat-button-style" onClick = {this.group_chat_switch}>Group Chat</Button>
                         <Button onClick = {this.logout_process} id = "logout-button-style" >Logout</Button>
                     </Toolbar>

@@ -86,9 +86,9 @@ class RegisterComponent extends React.Component {
      */
     register(event) {
         event.preventDefault();
-        if (this.state.email_id != "") {
-            if (this.state.pass_1 != "") {
-                if (this.state.pass_2 != "") {
+        if (this.state.email_id !== "") {
+            if (this.state.pass_1 !== "") {
+                if (this.state.pass_2 !== "") {
                     if (/^[a-z](\.?[a-z0-9]){2,}@g(oogle)?mail\.com$/g.test(this.state.email_id)) {
                         if (/^[a-zA-Z][\w!]{5,9}$/g.test(this.state.password)) {
                             if (this.state.pass_1 === this.state.pass_2) {
