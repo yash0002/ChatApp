@@ -83,7 +83,6 @@ class ChatPeerMessageDisplayomponent extends Component {
                 {Object.keys(final_chats_display).map(key => {
                     return (
                         <div id = "chat_show" key={key}>
-                            <li>
                             <div id = "each_chat">
 
                                 {/* {user_logged_in === this.state.message_display[key].email_id ? ( */}
@@ -98,7 +97,6 @@ class ChatPeerMessageDisplayomponent extends Component {
                                 )}
                                 
                             </div>
-                            </li>
                         </div>
                     )
                 })}
